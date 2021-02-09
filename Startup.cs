@@ -20,11 +20,6 @@ namespace Tutorias
             services.AddMvc();
             services.AddSingleton<Tutorias.Services.MenuService>();
             ////AGREGAR EL SERVICIO DE AUTENTICACION VIA COOKIES
-            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
-            //{
-            //    options.LoginPath = "/Account/Index/";
-            //    options.AccessDeniedPath = "/Account/Denied";
-            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

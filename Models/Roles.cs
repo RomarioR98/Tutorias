@@ -7,12 +7,14 @@ namespace Tutorias.Models
     {
         public Roles()
         {
-            Usuarios = new HashSet<Usuarios>();
+            Alumno = new HashSet<Alumno>();
+            Maestro = new HashSet<Maestro>();
         }
 
         public int Id { get; set; }
         public string Rol { get; set; }
 
-        public ICollection<Usuarios> Usuarios { get; set; }
+        public ICollection<Alumno> Alumno { get; set; }
+        public ICollection<Maestro> Maestro { get; set; }
     }
 }

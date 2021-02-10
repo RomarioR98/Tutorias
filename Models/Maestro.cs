@@ -8,7 +8,6 @@ namespace Tutorias.Models
         public Maestro()
         {
             Maestrosmateria = new HashSet<Maestrosmateria>();
-            Usuarios = new HashSet<Usuarios>();
         }
 
         public string NumeroControl { get; set; }
@@ -16,8 +15,10 @@ namespace Tutorias.Models
         public string ApPaterno { get; set; }
         public string ApMaterno { get; set; }
         public string Email { get; set; }
+        public string Contraseña { get; set; }
+        public int IdRol { get; set; }
 
+        public Roles IdRolNavigation { get; set; }
         public ICollection<Maestrosmateria> Maestrosmateria { get; set; }
-        public ICollection<Usuarios> Usuarios { get; set; }
     }
 }

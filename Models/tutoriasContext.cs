@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Tutorias.Models
 {
-    public partial class tutoriasbdContext : DbContext
+    public partial class tutoriasContext : DbContext
     {
-        public tutoriasbdContext()
+        public tutoriasContext()
         {
         }
 
-        public tutoriasbdContext(DbContextOptions<tutoriasbdContext> options)
+        public tutoriasContext(DbContextOptions<tutoriasContext> options)
             : base(options)
         {
         }
@@ -23,13 +23,12 @@ namespace Tutorias.Models
         public virtual DbSet<Materia> Materia { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Semestre> Semestre { get; set; }
-        public virtual DbSet<Usuarios> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("server=localhost; user id=root; password=root; database=tutoriasbd;");
+                optionsBuilder.UseMySql("server=localhost; user id=root; password=root; database=tutorias;");
             }
         }
 
@@ -44,6 +43,9 @@ namespace Tutorias.Models
                 entity.HasIndex(e => e.IdCarrera)
                     .HasName("fkAlumnoCarrera");
 
+                entity.HasIndex(e => e.IdRol)
+                    .HasName("fkAlumnosRoles");
+
                 entity.HasIndex(e => e.IdSemestre)
                     .HasName("fkAlumnoSemestre");
 
@@ -57,11 +59,17 @@ namespace Tutorias.Models
                     .IsRequired()
                     .HasColumnType("varchar(30)");
 
+                entity.Property(e => e.Contraseña)
+                    .IsRequired()
+                    .HasColumnType("varchar(16)");
+
                 entity.Property(e => e.Email)
                     .IsRequired()
                     .HasColumnType("varchar(50)");
 
                 entity.Property(e => e.IdCarrera).HasColumnType("int(11)");
+
+                entity.Property(e => e.IdRol).HasColumnType("int(11)");
 
                 entity.Property(e => e.IdSemestre).HasColumnType("int(11)");
 
@@ -74,6 +82,12 @@ namespace Tutorias.Models
                     .HasForeignKey(d => d.IdCarrera)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fkAlumnoCarrera");
+
+                entity.HasOne(d => d.IdRolNavigation)
+                    .WithMany(p => p.Alumno)
+                    .HasForeignKey(d => d.IdRol)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fkAlumnosRoles");
 
                 entity.HasOne(d => d.IdSemestreNavigation)
                     .WithMany(p => p.Alumno)
@@ -133,6 +147,9 @@ namespace Tutorias.Models
 
                 entity.ToTable("maestro");
 
+                entity.HasIndex(e => e.IdRol)
+                    .HasName("fkMaestrosRoles");
+
                 entity.Property(e => e.NumeroControl).HasColumnType("varchar(4)");
 
                 entity.Property(e => e.ApMaterno)
@@ -143,13 +160,25 @@ namespace Tutorias.Models
                     .IsRequired()
                     .HasColumnType("varchar(30)");
 
+                entity.Property(e => e.Contraseña)
+                    .IsRequired()
+                    .HasColumnType("varchar(16)");
+
                 entity.Property(e => e.Email)
                     .IsRequired()
                     .HasColumnType("varchar(50)");
 
+                entity.Property(e => e.IdRol).HasColumnType("int(11)");
+
                 entity.Property(e => e.Nombres)
                     .IsRequired()
                     .HasColumnType("varchar(50)");
+
+                entity.HasOne(d => d.IdRolNavigation)
+                    .WithMany(p => p.Maestro)
+                    .HasForeignKey(d => d.IdRol)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fkMaestrosRoles");
             });
 
             modelBuilder.Entity<Maestrosmateria>(entity =>
@@ -231,47 +260,6 @@ namespace Tutorias.Models
                 entity.Property(e => e.NoSem)
                     .HasColumnName("No_sem")
                     .HasColumnType("int(11)");
-            });
-
-            modelBuilder.Entity<Usuarios>(entity =>
-            {
-                entity.ToTable("usuarios");
-
-                entity.HasIndex(e => e.NumeroControl)
-                    .HasName("fkAlumnoUsuario");
-
-                entity.HasIndex(e => e.Rol)
-                    .HasName("fkUsuariosRoles");
-
-                entity.Property(e => e.Id).HasColumnType("int(11)");
-
-                entity.Property(e => e.Contraseña)
-                    .IsRequired()
-                    .HasColumnType("varchar(16)");
-
-                entity.Property(e => e.NumeroControl)
-                    .IsRequired()
-                    .HasColumnType("varchar(8)");
-
-                entity.Property(e => e.Rol).HasColumnType("int(11)");
-
-                entity.HasOne(d => d.NumeroControlNavigation)
-                    .WithMany(p => p.Usuarios)
-                    .HasForeignKey(d => d.NumeroControl)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fkAlumnoUsuario");
-
-                entity.HasOne(d => d.NumeroControl1)
-                    .WithMany(p => p.Usuarios)
-                    .HasForeignKey(d => d.NumeroControl)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fkMaestroUsuario");
-
-                entity.HasOne(d => d.RolNavigation)
-                    .WithMany(p => p.Usuarios)
-                    .HasForeignKey(d => d.Rol)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fkUsuariosRoles");
             });
         }
     }

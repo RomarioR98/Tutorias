@@ -8,14 +8,14 @@ namespace Tutorias.Repositories
 {
     public class Repository<T> where T : class
     {
-        public tutoriasbdContext Context { get; set; }
+        public tutoriasContext Context { get; set; }
 
         public Repository()
         {
-            Context = new tutoriasbdContext();
+            Context = new tutoriasContext();
         }
 
-        public Repository(tutoriasbdContext context)
+        public Repository(tutoriasContext context)
         {
             Context = context;
         }

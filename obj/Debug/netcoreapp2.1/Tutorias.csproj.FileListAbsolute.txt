@@ -32,3 +32,10 @@ C:\Users\Romar\OneDrive\Escritorio\Tutorias\obj\Debug\netcoreapp2.1\Razor\Areas\
 C:\Users\Romar\OneDrive\Escritorio\Tutorias\obj\Debug\netcoreapp2.1\Razor\Areas\Maestro\Views\_ViewImports.cshtml.g.cs
 C:\Users\Romar\OneDrive\Escritorio\Tutorias\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\Romar\OneDrive\Escritorio\Tutorias\obj\Debug\netcoreapp2.1\Razor\Views\Home\RegistroMaestros.cshtml.g.cs
+C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.csprojAssemblyReference.cache
+C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.RazorAssemblyInfo.cache
+C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.RazorAssemblyInfo.cs
+C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.AssemblyInfoInputs.cache
+C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.AssemblyInfo.cs
+C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.dll
+C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.pdb

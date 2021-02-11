@@ -11,13 +11,13 @@ namespace Tutorias.Services
     {
         public IEnumerable<Semestre> GetSemestres()
         {
-            tutoriasbdContext context = new tutoriasbdContext();
+            tutoriasContext context = new tutoriasContext();
             return context.Semestre.Select(x => new Semestre { NoSem = x.NoSem, Id = x.Id }).OrderBy(x => x.NoSem);
         }
 
         public IEnumerable<Carrera> GetCarreras()
         {
-            tutoriasbdContext context = new tutoriasbdContext();
+            tutoriasContext context = new tutoriasContext();
             return context.Carrera.Select(x => new Carrera { Id = x.Id, Carrera1 = x.Carrera1 }).OrderBy(x => x.Carrera1);
         }
     }

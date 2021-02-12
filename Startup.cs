@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Tutorias.Services;
 
 namespace Tutorias
 {
@@ -20,6 +21,12 @@ namespace Tutorias
             services.AddMvc();
             services.AddSingleton<Tutorias.Services.MenuService>();
             ////AGREGAR EL SERVICIO DE AUTENTICACION VIA COOKIES
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+			{
+                options.LoginPath = "/Login/Alumno/";
+                options.LoginPath = "/Login/Maestro/";
+                options.AccessDeniedPath = "/Login/Denied";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,7 +39,7 @@ namespace Tutorias
 
 
             //ACTIVAR LA AUTENTICACION
-            //app.UseAuthentication();
+            app.UseAuthentication();
 
             app.UseFileServer();
             app.UseMvc(routes =>

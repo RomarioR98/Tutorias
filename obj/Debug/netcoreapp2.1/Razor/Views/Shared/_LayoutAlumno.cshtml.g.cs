@@ -48,7 +48,11 @@ namespace AspNetCore
             WriteLiteral("<!DOCTYPE html>\r\n<html lang=\"en\">\r\n");
             EndContext();
             BeginContext(35, 731, false);
+<<<<<<< HEAD
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7058f206cfc243528e5eb9449f0db1c0", async() => {
+=======
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "83a7a2d14509467a9af67ee71735c444", async() => {
+>>>>>>> roma
                 BeginContext(41, 645, true);
                 WriteLiteral(@"
     <title>Alumno | Inicio</title>
@@ -62,7 +66,11 @@ namespace AspNetCore
     ");
                 EndContext();
                 BeginContext(686, 69, false);
+<<<<<<< HEAD
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cb0b2d934a004e8f936a5320da142e69", async() => {
+=======
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "77712cf435c24ede9b66c296c33f2c3e", async() => {
+>>>>>>> roma
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -97,7 +105,11 @@ namespace AspNetCore
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(768, 3314, false);
+<<<<<<< HEAD
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "affbeeadce80487ebdbb3d45ab543a9f", async() => {
+=======
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a74be43117c4ffd94b7250c91f4675f", async() => {
+>>>>>>> roma
                 BeginContext(774, 1416, true);
                 WriteLiteral(@"
 

@@ -59,7 +59,7 @@ namespace AspNetCore
             WriteLiteral("\r\n<div class=\"formAgAlum bg-light align-lg-center | mt-2 mx-auto mb-3\">\r\n    <div class=\"containerDatosPersonales\">\r\n        <h3 id=\"eDatosPersonales\">Datos personales</h3>\r\n    </div>\r\n    <div class=\"container my-2 bg-light\">\r\n        ");
             EndContext();
             BeginContext(386, 3538, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a8d995b7427d4009bad9e2dff5045009", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e632fd0ceb247ec901ddb3cdae4ba41", async() => {
                 BeginContext(409, 1679, true);
                 WriteLiteral(@"
             <div class=""input-group mb-3 "">
@@ -94,7 +94,7 @@ namespace AspNetCore
                 ");
                 EndContext();
                 BeginContext(2088, 331, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e717be04f02a45ba8a7abfc71c173a90", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7450aaffeeab49cf9caa8adb9a069529", async() => {
                     BeginContext(2213, 2, true);
                     WriteLiteral("\r\n");
                     EndContext();
@@ -108,7 +108,7 @@ namespace AspNetCore
                     WriteLiteral("                        ");
                     EndContext();
                     BeginContext(2324, 45, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2e334947476641c2854ae8597b34c2d5", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c7d5893316b349a293b26c29b738dc99", async() => {
                         BeginContext(2350, 10, false);
 #line 45 "C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\Views\Home\RegistroAlumnos.cshtml"
                                             Write(item.NoSem);
@@ -178,7 +178,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.For = ModelExpressionProvi
                 WriteLiteral("\r\n            </div>\r\n\r\n            <div class=\"input-group mb-3 w-100\">\r\n                <div class=\"input-group-prepend\">\r\n                    <span class=\"input-group-text\" id=\"basic-addon1\">Carrera</span>\r\n                </div>\r\n                ");
                 EndContext();
                 BeginContext(2669, 336, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bda4948a0ccd492b90a30a8e803fc1c9", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ce18dcd27a0c48ba98e5cceed6605f09", async() => {
                     BeginContext(2792, 2, true);
                     WriteLiteral("\r\n");
                     EndContext();
@@ -192,7 +192,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.For = ModelExpressionProvi
                     WriteLiteral("                        ");
                     EndContext();
                     BeginContext(2902, 53, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5002bbdce4234b4ea34a44548b74c236", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "31ad71a506c54293b4bf6d17dc0909e6", async() => {
                         BeginContext(2927, 5, true);
                         WriteLiteral("Ing. ");
                         EndContext();

@@ -32,3 +32,5 @@ C:\Users\Romar\OneDrive\Escritorio\Tutorias\obj\Debug\netcoreapp2.1\Razor\Areas\
 C:\Users\Romar\OneDrive\Escritorio\Tutorias\obj\Debug\netcoreapp2.1\Razor\Areas\Maestro\Views\_ViewImports.cshtml.g.cs
 C:\Users\Romar\OneDrive\Escritorio\Tutorias\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\Romar\OneDrive\Escritorio\Tutorias\obj\Debug\netcoreapp2.1\Razor\Views\Home\RegistroMaestros.cshtml.g.cs
+C:\Users\Romar\OneDrive\Escritorio\Tutorias\obj\Debug\netcoreapp2.1\Razor\Views\Account\IndexAlumno.cshtml.g.cs
+C:\Users\Romar\OneDrive\Escritorio\Tutorias\obj\Debug\netcoreapp2.1\Razor\Views\Account\IndexMaestro.cshtml.g.cs

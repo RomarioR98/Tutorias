@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "IndexAlumno";
+    Layout = "_Layout";
+}
+
+<div class="formAgAlum bg-light align-lg-center | mt-2 mx-auto mb-3">
+    <div class="containerDatosPersonales">
+        <h3 id="eDatosPersonales">Inicio de sesion del alumno</h3>
+    </div>
+
+    <div class="container my-2 bg-light">
+        <form class="bg-light">
+            <div class="input-group mb-3 ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Numero de Control</span>
+                </div>
+                <input type="text" name="txtNumControl" id="txtNumControl" class="form-control" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3 w-100">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Contraseña</span>
+                </div>
+                <input type="password" name="txtContraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1">
+            </div>
+            @Html.ValidationSummary()
+            <input class="btn btn-secondary btn-md float-right | mb-3" id="btnGuardar" type="submit" value="Ingresar" />
+        </form>
+    </div>
+</div>
+

@@ -9,7 +9,6 @@
     <div class="containerDatosPersonales">
         <h3 id="eDatosPersonales">Datos personales</h3>
     </div>
-
     <div class="container my-2 bg-light">
         <form class="bg-light">
             <div class="input-group mb-3 ">
@@ -66,14 +65,14 @@
                 <input type="email" name="txtEmail" id="txtEmail" class="form-control" aria-describedby="basic-addon1">
             </div>
 
-            @*<div class="input-group mb-3 w-100">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Contraseña</span>
-                    </div>
-                    <input type="password" name="txtContraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1">
-                </div>*@
-
-            <button class="btn btn-secondary btn-md float-right | mb-3" id="btnGuardar" name="btnGuardar" type="submit">Guardar</button>
+            <div class="input-group mb-3 w-100">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Contraseña</span>
+                </div>
+                <input type="password" name="txtContraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1">
+            </div>
+            @Html.ValidationSummary()
+            <input class="btn btn-secondary btn-md float-right | mb-3" type="submit" value="Guardar" />
         </form>
     </div>
 </div>

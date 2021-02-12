@@ -3,7 +3,14 @@
     ViewData["Title"] = "RegistroMaestros";
     Layout = "_Layout";
 }
+<!--#######################  Header    #######################-->
+<header class="cabecera">
+    <div class="container">
+        <h1> Registro Maestros</h1>
+    </div>
+</header>
 
+<!--#######################  Registro Maestros   #######################-->
 <div class="formAgDoc bg-light align-lg-center mt-2 mx-auto mb-3">
     <div class="containerDatosPersonales">
         <h3 id="eDatosPersonales">Datos personales</h3>
@@ -49,7 +56,7 @@
                 <input type="password" name="txtContraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1">
             </div>
             @Html.ValidationSummary()
-            <input class="btn btn-secondary btn-md float-right mb-3" type="submit" value="Guardar"/>
+            <input class="btn btn-secondary btn-md float-right mb-3" type="submit" value="Registar" />
         </form>
     </div>
 </div>

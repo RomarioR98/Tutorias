@@ -55,7 +55,7 @@ namespace AspNetCore
             WriteLiteral("\r\n<div class=\"formAgAlum bg-light align-lg-center | mt-2 mx-auto mb-3\">\r\n    <div class=\"containerDatosPersonales\">\r\n        <h3 id=\"eDatosPersonales\">Inicio de sesion del maestro</h3>\r\n    </div>\r\n    <div class=\"container my-2 bg-light\">\r\n        ");
             EndContext();
             BeginContext(324, 933, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71cafa0d99d44e109b95397cb0c0fd7b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "38e332f613ec4c74864debf42fa67fd1", async() => {
                 BeginContext(347, 746, true);
                 WriteLiteral(@"
             <div class=""input-group mb-3 "">

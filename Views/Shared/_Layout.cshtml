@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Materias</title>
+    <title>Tutorias</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,20 +16,35 @@
 
     <!--#######################  navbar    #######################-->
     <nav class="navbar navbar-expand navbar-light shadow p-3 rounded">
-        <a class="navbar-brand text-white" href="#">Tutorias</a>
-        <a id="materias" class="nav-link" style="font-size:19px; color:rgba(255, 255, 255, 0.644);" href="~/RegistroAlumnos">Registro de Alumnos</a>
-        <a id="materias" class="nav-link" style="font-size:19px; color:rgba(255, 255, 255, 0.644);" href="~/RegistroMaestros">Registro de Maestros</a>
-        <span class="navbar-text dropdown">
+       <div class="container">
+           <div class="navbar-brand">
+              <a class="navbar-brand text-white" href="#">Tutorias</a>
+           </div>
+           <div>
+               <div class="navbar-text dropdown">
+                   <a class="nav-link dropdown-toggle  text-white " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Registro
+                   </a>
+                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                       <a id="materias" class="dropdown-item" href="~/RegistroAlumnos">Alumnos</a>
+                       <a id="materias" class="dropdown-item" href="~/RegistroMaestros">Maestros</a>
 
-            <a class="nav-link dropdown-toggle  text-white " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="far fa-user"></i>  Iniciar sesión
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="~/Login/Maestro">Maestro</a>
-                <a class="dropdown-item" href="~/Login/Alumno">Alumno</a>
+                   </div>
+               </div>
+               <div class="navbar-text dropdown" id="navbarIS">
+                   <a class="nav-link dropdown-toggle  text-white " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       <i class="far fa-user"></i>  Iniciar sesión
+                   </a>
+                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                       <a class="dropdown-item" href="~/Login/Maestro">Maestros</a>
+                       <a class="dropdown-item" href="~/Login/Alumno">Alumnos</a>
 
-            </div>
-        </span>
+                   </div>
+               </div>
+           </div>
+           
+        </div>
+       
     </nav>
         <!--#######################  Header    #######################-->
 

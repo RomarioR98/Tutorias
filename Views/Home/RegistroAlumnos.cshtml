@@ -1,4 +1,4 @@
-﻿@model Tutorias.Models.AlumnoViewModel
+﻿@model Tutorias.Models.Alumno
 @inject Tutorias.Services.MenuService ms
 @{
     ViewData["Title"] = "RegistroAlumnos";
@@ -11,49 +11,41 @@
     </div>
 </header>
 
-
-
 <!--#######################  Registro Alumnos    #######################-->
 
 <div class="formAgAlum bg-light align-lg-center | mt-2 mx-auto">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="error">
-        @Html.ValidationSummary()
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
     <div class="containerDatosPersonales">
         <h3 id="eDatosPersonales">Datos personales</h3>
     </div>
     <div class="container my-2">
-        <form class="bg-light" method="post" action="~/RegistroAlumnos" enctype="multipart/form-data">
+        <form class="bg-light">
             <div class="input-group mb-3 ">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1" for="numControl">Numero de Control</span>
+                    <span class="input-group-text" id="basic-addon1">Numero de Control</span>
                 </div>
-                <input type="text" asp-for="NumeroControl" name="NumeroControl" id="txtNumControl" class="form-control" aria-describedby="basic-addon1">
+                <input type="text" name="txtNumControl" id="txtNumControl" class="form-control" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1" for="nombre">Nombre</span>
+                    <span class="input-group-text" id="basic-addon1">Nombre</span>
                 </div>
-                <input type="text" asp-for="Nombre" name="Nombre" id="txtNombre" class="form-control" aria-describedby="basic-addon1">
+                <input type="text" name="txtNombre" id="txtNombre" class="form-control" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1" for="apPaterno">Apellido Paterno</span>
+                    <span class="input-group-text" id="basic-addon1">Apellido Paterno</span>
                 </div>
-                <input type="text" asp-for="ApPaterno" name="ApPaterno" id="txtApPaterno" class="form-control" aria-describedby="basic-addon1">
+                <input type="text" name="txtApPaterno" id="txtApPaterno" class="form-control" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1" for="apMaterno">Apellido Materno</span>
+                    <span class="input-group-text" id="basic-addon1">Apellido Materno</span>
                 </div>
-                <input type="text" asp-for="ApMaterno" name="ApMaterno" id="txtApMaterno" class="form-control" aria-describedby="basic-addon1">
+                <input type="text" name="txtApMaterno" id="txtApMaterno" class="form-control" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1" for="semestre">Semestre</span>
+                    <span class="input-group-text" id="basic-addon1">Semestre</span>
                 </div>
                 <select required asp-for="IdSemestre" name="IdSemestre" type="text" class="form-control" aria-label="Default select example">
                     @foreach (var item in ms.GetSemestres())
@@ -76,33 +68,20 @@
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1" for="email">Email</span>
+                    <span class="input-group-text" id="basic-addon1">Email</span>
                 </div>
-                <input type="email" asp-for="Email" name="Email" id="txtEmail" class="form-control" aria-describedby="basic-addon1">
+                <input type="email" name="txtEmail" id="txtEmail" class="form-control" aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1" for="contraseña">Contraseña</span>
+                    <span class="input-group-text" id="basic-addon1">Contraseña</span>
                 </div>
-                <input type="password" asp-for="Contraseña" name="Contraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1">
+                <input type="password" name="txtContraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1">
             </div>
-
-
-            <input  id="btnRegistrar" class="btn btn-secondary btn-md float-right | mb-3" type="submit" value="Registrar" />
+            @Html.ValidationSummary()
+            <input class="btn btn-secondary btn-md float-right | mb-3" type="submit" value="Registrar" />
         </form>
     </div>
 </div>
 
-
-@*<script>
-   $(document).ready(function() { 
-	
-	$("#btnRegistrar").click(function(){ 
-   
-    $("#error").prop("hidden", false);
-		}); 
-		
-}); 
-
-</script>*@

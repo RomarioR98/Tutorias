@@ -80,9 +80,14 @@
                 </div>
                 <input type="password" name="Contraseña" asp-for="Contraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1">
             </div>
-            @Html.ValidationSummary()
-            <input class="btn btn-secondary btn-md float-right | mb-3" type="submit" value="Registrar" />
+
+            <input class="btn btn-secondary btn-md float-right | mb-3" type="submit" value="Registrar" id="btnRegistrar" />  
+            <p id="error">
+                @Html.ValidationSummary()
+            </p>
+         
+            
+
         </form>
     </div>
 </div>
-

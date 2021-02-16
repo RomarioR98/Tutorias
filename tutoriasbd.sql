@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
--- Host: localhost    Database: tutoriasbd
+-- Host: localhost    Database: tutorias
 -- ------------------------------------------------------
 -- Server version	8.0.13
 
@@ -28,13 +28,17 @@ CREATE TABLE `alumno` (
   `ApPaterno` varchar(30) NOT NULL,
   `ApMaterno` varchar(30) NOT NULL,
   `Email` varchar(50) NOT NULL,
+  `Contraseña` varchar(16) NOT NULL,
   `IdSemestre` int(11) NOT NULL,
   `IdCarrera` int(11) NOT NULL,
+  `IdRol` int(11) NOT NULL,
   PRIMARY KEY (`NumeroControl`),
   KEY `fkAlumnoCarrera` (`IdCarrera`),
   KEY `fkAlumnoSemestre` (`IdSemestre`),
+  KEY `fkAlumnosRoles` (`IdRol`),
   CONSTRAINT `fkAlumnoCarrera` FOREIGN KEY (`IdCarrera`) REFERENCES `carrera` (`id`),
-  CONSTRAINT `fkAlumnoSemestre` FOREIGN KEY (`IdSemestre`) REFERENCES `semestre` (`id`)
+  CONSTRAINT `fkAlumnoSemestre` FOREIGN KEY (`IdSemestre`) REFERENCES `semestre` (`id`),
+  CONSTRAINT `fkAlumnosRoles` FOREIGN KEY (`IdRol`) REFERENCES `roles` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -86,7 +90,7 @@ CREATE TABLE `carrera` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Carrera` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +99,6 @@ CREATE TABLE `carrera` (
 
 LOCK TABLES `carrera` WRITE;
 /*!40000 ALTER TABLE `carrera` DISABLE KEYS */;
-INSERT INTO `carrera` VALUES (1,'Sistemas Computacionales'),(2,'Mecatronica'),(3,'Industrial'),(4,'Electromecanica'),(5,'Petrolera'),(6,'Administracion');
 /*!40000 ALTER TABLE `carrera` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +115,11 @@ CREATE TABLE `maestro` (
   `ApPaterno` varchar(30) NOT NULL,
   `ApMaterno` varchar(30) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  PRIMARY KEY (`NumeroControl`)
+  `Contraseña` varchar(16) NOT NULL,
+  `IdRol` int(11) NOT NULL,
+  PRIMARY KEY (`NumeroControl`),
+  KEY `fkMaestrosRoles` (`IdRol`),
+  CONSTRAINT `fkMaestrosRoles` FOREIGN KEY (`IdRol`) REFERENCES `roles` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -122,7 +129,6 @@ CREATE TABLE `maestro` (
 
 LOCK TABLES `maestro` WRITE;
 /*!40000 ALTER TABLE `maestro` DISABLE KEYS */;
-INSERT INTO `maestro` VALUES ('2345','Ernestina','Leija','Ramirez','ernestina@itesrc.com'),('3456','Ignacio','Martinez','Garcia','nacho@itesrc.com');
 /*!40000 ALTER TABLE `maestro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,7 +148,7 @@ CREATE TABLE `maestrosmateria` (
   KEY `fkMateriaMestro` (`IdMateria`),
   CONSTRAINT `fkMaestroMateria` FOREIGN KEY (`IdMaestro`) REFERENCES `maestro` (`numerocontrol`),
   CONSTRAINT `fkMateriaMestro` FOREIGN KEY (`IdMateria`) REFERENCES `materia` (`clave`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,7 +157,6 @@ CREATE TABLE `maestrosmateria` (
 
 LOCK TABLES `maestrosmateria` WRITE;
 /*!40000 ALTER TABLE `maestrosmateria` DISABLE KEYS */;
-INSERT INTO `maestrosmateria` VALUES (1,'FDP-0001','2345'),(2,'MAD-0001','3456'),(3,'RED-0005','3456');
 /*!40000 ALTER TABLE `maestrosmateria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,7 +183,6 @@ CREATE TABLE `materia` (
 
 LOCK TABLES `materia` WRITE;
 /*!40000 ALTER TABLE `materia` DISABLE KEYS */;
-INSERT INTO `materia` VALUES ('CAL-0001','Calculo Diferencial',1),('FDP-0001','Fundamentos de Programacion',1),('MAD-0001','Matematicas Discretas',1),('RED-0005','Redes',5);
 /*!40000 ALTER TABLE `materia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,7 +197,7 @@ CREATE TABLE `roles` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `rol` varchar(40) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -202,7 +206,6 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'Alumno'),(2,'Maestro');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,7 +220,7 @@ CREATE TABLE `semestre` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `No_sem` int(11) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,38 +229,7 @@ CREATE TABLE `semestre` (
 
 LOCK TABLES `semestre` WRITE;
 /*!40000 ALTER TABLE `semestre` DISABLE KEYS */;
-INSERT INTO `semestre` VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9);
 /*!40000 ALTER TABLE `semestre` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `usuarios`
---
-
-DROP TABLE IF EXISTS `usuarios`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `usuarios` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `NumeroControl` varchar(8) NOT NULL,
-  `Contraseña` varchar(16) NOT NULL,
-  `Rol` int(11) NOT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `fkAlumnoUsuario` (`NumeroControl`),
-  KEY `fkUsuariosRoles` (`Rol`),
-  CONSTRAINT `fkAlumnoUsuario` FOREIGN KEY (`NumeroControl`) REFERENCES `alumno` (`numerocontrol`),
-  CONSTRAINT `fkMaestroUsuario` FOREIGN KEY (`NumeroControl`) REFERENCES `maestro` (`numerocontrol`),
-  CONSTRAINT `fkUsuariosRoles` FOREIGN KEY (`Rol`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuarios`
---
-
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -269,4 +241,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-09 14:35:27
+-- Dump completed on 2021-02-10 17:59:59

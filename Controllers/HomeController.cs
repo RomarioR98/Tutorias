@@ -22,7 +22,7 @@ namespace Tutorias.Controllers
         }
 
 
-     
+
         [Route("RegistroAlumnos")]
         [HttpPost]
         public IActionResult RegistroAlumnos(AlumnoViewModel alumno)

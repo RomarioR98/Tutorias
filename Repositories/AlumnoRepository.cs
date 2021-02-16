@@ -11,6 +11,7 @@ namespace Tutorias.Repositories
     {
         public void InsertAlumno(AlumnoViewModel alumno)
         {
+
             string error = Validar(alumno);
 
             if (error != "")
@@ -23,7 +24,7 @@ namespace Tutorias.Repositories
                 ApPaterno = alumno.ApPaterno,
                 ApMaterno = alumno.ApMaterno,
                 Email = alumno.Email,
-                Contraseña = alumno.Contraseña,
+                Contraseña = Encrypt.GetMD5(alumno.Contraseña),
                 IdSemestre = alumno.IdSemestre,
                 IdCarrera = alumno.IdCarrera,
                 IdRol = 1
@@ -35,8 +36,8 @@ namespace Tutorias.Repositories
         {
             if (string.IsNullOrEmpty(alumno.NumeroControl))
                 return "Proporcione su numero de control";
-
-            if (string.IsNullOrEmpty(alumno.Nombres))
+            
+           if (string.IsNullOrEmpty(alumno.Nombres))
                 return "Proporcione su nombre";
             if (string.IsNullOrEmpty(alumno.ApPaterno))
                 return "Proporcione su apellido paterno";

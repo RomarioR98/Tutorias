@@ -1,4 +1,4 @@
-﻿@model Tutorias.Models.Alumno
+﻿@model Tutorias.Models.AlumnoViewModel
 @inject Tutorias.Services.MenuService ms
 @{
     ViewData["Title"] = "RegistroAlumnos";
@@ -18,30 +18,31 @@
         <h3 id="eDatosPersonales">Datos personales</h3>
     </div>
     <div class="container my-2">
-        <form class="bg-light">
+        <form class="bg-light" method="post" action="~/RegistroAlumnos" enctype="multipart/form-data">
+            <input type="text" asp-for="IdRol" name="IdRol" id="txtIdRoll" class="form-control" aria-describedby="basic-addon1" value="1" hidden>
             <div class="input-group mb-3 ">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Numero de Control</span>
+                    <span class="input-group-text" id="basic-addon1" for="NumControl">Numero de Control</span>
                 </div>
-                <input type="text" name="txtNumControl" id="txtNumControl" class="form-control" aria-describedby="basic-addon1">
+                <input type="text" asp-for="NumeroControl" name="NumeroControl" id="txtNumControl" class="form-control" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Nombre</span>
+                    <span class="input-group-text" id="basic-addon1" for="Nombres">Nombre</span>
                 </div>
-                <input type="text" name="txtNombre" id="txtNombre" class="form-control" aria-describedby="basic-addon1">
+                <input type="text" asp-for="Nombres" name="Nombres" id="txtNombre" class="form-control" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Apellido Paterno</span>
+                    <span class="input-group-text" id="basic-addon1" for="ApPaterno">Apellido Paterno</span>
                 </div>
-                <input type="text" name="txtApPaterno" id="txtApPaterno" class="form-control" aria-describedby="basic-addon1">
+                <input type="text" asp-for="ApPaterno" name="ApPaterno" id="txtApPaterno" class="form-control" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Apellido Materno</span>
+                    <span class="input-group-text" id="basic-addon1" for="ApMaterno">Apellido Materno</span>
                 </div>
-                <input type="text" name="txtApMaterno" id="txtApMaterno" class="form-control" aria-describedby="basic-addon1">
+                <input type="text" asp-for="ApMaterno" name="ApMaterno" id="txtApMaterno" class="form-control" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
@@ -68,16 +69,16 @@
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Email</span>
+                    <span class="input-group-text" id="basic-addon1" for="Email">Email</span>
                 </div>
-                <input type="email" name="txtEmail" id="txtEmail" class="form-control" aria-describedby="basic-addon1">
+                <input type="email" asp-for="Email" name="Email" id="txtEmail" class="form-control" aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Contraseña</span>
+                    <span class="input-group-text" id="basic-addon1" for="Contraseña">Contraseña</span>
                 </div>
-                <input type="password" name="txtContraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1">
+                <input type="password" name="Contraseña" asp-for="Contraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1">
             </div>
             @Html.ValidationSummary()
             <input class="btn btn-secondary btn-md float-right | mb-3" type="submit" value="Registrar" />

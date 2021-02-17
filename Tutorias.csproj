@@ -5,8 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Alumno\Models\" />
-    <Folder Include="Areas\Maestro\Models\ViewModels\" />
+    <Compile Remove="Areas\Alumno\Models\**" />
+    <Compile Remove="Areas\Maestro\Models\**" />
+    <Content Remove="Areas\Alumno\Models\**" />
+    <Content Remove="Areas\Maestro\Models\**" />
+    <EmbeddedResource Remove="Areas\Alumno\Models\**" />
+    <EmbeddedResource Remove="Areas\Maestro\Models\**" />
+    <None Remove="Areas\Alumno\Models\**" />
+    <None Remove="Areas\Maestro\Models\**" />
   </ItemGroup>
 
   <ItemGroup>

@@ -11,35 +11,57 @@ namespace Tutorias.Repositories
     {
         public void InsertAlumno(AlumnoViewModel alumno)
         {
-
             string error = Validar(alumno);
 
             if (error != "")
                 throw new ArgumentException(error);
 
-            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl))
+            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombres == alumno.Nombres && x.ApPaterno == alumno.ApPaterno
+         && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == true))
+                throw new ArgumentException("El alumno ya ha sido registrado");
+            
+            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Activo==true ))
                 throw new ArgumentException("El numero de control ya ha sido registrado");
-            if (GetAll().Any(x => x.Email == alumno.Email))
+            if (GetAll().Any(x => x.Email == alumno.Email && x.Activo==true))
                 throw new ArgumentException("El email ya ha sido registrado");
 
-            Alumno alum = new Alumno()
+            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombres == alumno.Nombres && x.ApPaterno == alumno.ApPaterno
+                    && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == false))
             {
-                NumeroControl = alumno.NumeroControl.ToLower(),
-                Nombres = alumno.Nombres,
-                ApPaterno = alumno.ApPaterno,
-                ApMaterno = alumno.ApMaterno,
-                Email = alumno.Email,
-                Contraseña = Encrypt.GetMD5(alumno.Contraseña),
-                IdSemestre = alumno.IdSemestre,
-                IdCarrera = alumno.IdCarrera,
-                IdRol = 1
-            };
-            Insert(alum);
+                var alumnoBD = GetById(alumno.NumeroControl);
+
+                alumnoBD.Activo = true;
+                alumnoBD.Contraseña = Encrypt.GetMD5(alumno.Contraseña);
+                alumnoBD.IdSemestre = alumno.IdSemestre;
+                alumnoBD.IdCarrera = alumno.IdCarrera;
+                Update(alumnoBD);
+
+            }
+
+            else
+            {
+
+                Alumno alum = new Alumno()
+                {
+                    NumeroControl = alumno.NumeroControl.ToUpper(),
+                    Nombres = alumno.Nombres,
+                    ApPaterno = alumno.ApPaterno,
+                    ApMaterno = alumno.ApMaterno,
+                    Email = alumno.Email,
+                    Contraseña = Encrypt.GetMD5(alumno.Contraseña),
+                    IdSemestre = alumno.IdSemestre,
+                    IdCarrera = alumno.IdCarrera,
+                    IdRol = 1,
+                    Activo = true
+
+                };
+                Insert(alum);
+            }
         }
 
         public void UpdateAlumno(AlumnoViewModel alumno)
         {
-            if (GetById(alumno.NumeroControl).NumeroControl == alumno.NumeroControl.ToLower())
+            if (GetById(alumno.NumeroControl).NumeroControl == alumno.NumeroControl.ToUpper())
                 return;
 
             string error = Validar(alumno);
@@ -47,7 +69,7 @@ namespace Tutorias.Repositories
             if (error != "")
                 throw new ApplicationException(error);
 
-            if (GetAll().Any(x=>x.Email==alumno.Email))
+            if (GetAll().Any(x => x.Email == alumno.Email))
                 throw new ArgumentException("El email ya ha sido registrado");
 
             var alumnoBD = GetById(alumno.NumeroControl);
@@ -63,7 +85,7 @@ namespace Tutorias.Repositories
             Update(alumnoBD);
 
 
-                    }
+        }
 
 
         string Validar(AlumnoViewModel alumno)

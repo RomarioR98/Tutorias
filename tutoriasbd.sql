@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: tutorias
 -- ------------------------------------------------------
--- Server version	8.0.13
+-- Server version	8.0.12
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,10 +28,11 @@ CREATE TABLE `alumno` (
   `ApPaterno` varchar(30) NOT NULL,
   `ApMaterno` varchar(30) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Contraseña` varchar(16) NOT NULL,
+  `Contraseña` varchar(200) NOT NULL,
   `IdSemestre` int(11) NOT NULL,
   `IdCarrera` int(11) NOT NULL,
   `IdRol` int(11) NOT NULL,
+  `Activo` bit(1) NOT NULL,
   PRIMARY KEY (`NumeroControl`),
   KEY `fkAlumnoCarrera` (`IdCarrera`),
   KEY `fkAlumnoSemestre` (`IdSemestre`),
@@ -48,6 +49,7 @@ CREATE TABLE `alumno` (
 
 LOCK TABLES `alumno` WRITE;
 /*!40000 ALTER TABLE `alumno` DISABLE KEYS */;
+INSERT INTO `alumno` VALUES ('151G0242','pstty','salazar','De Leon','pattyguiselle@hotmail.com','kdlkkd',3,3,1,_binary '\0'),('161g023','patty','Garcia','De Leon','pattyguiselle89@hotmail.com','b5bcb826e0e4f6e130443cda06903d72',1,4,1,_binary '\0'),('161G0241','Roma','Rodriguez','Anguiano','romar98@hotmail.com','aec6500cec2a7aea5d70d829fd8cba9e',1,4,1,_binary '\0'),('161G0242','patty','salazar','De León','pattyguiselle@hotmail.com','ldckdñl',1,4,1,_binary '\0'),('161g0248','Alejandro','Garcia','De León','pattyguiselle897@hotmail.com','a105be819c569edb0a428e03d80e7265',1,4,1,_binary '\0'),('161G089','Alejandro','Garcia','Cardona','pattyguiselle@hotmail.com','lcvlkclkñ',10,1,1,_binary '\0');
 /*!40000 ALTER TABLE `alumno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +67,7 @@ CREATE TABLE `alumnosmateria` (
   PRIMARY KEY (`Id`),
   KEY `fkAlumnoMateria` (`IdAlumno`),
   KEY `fkMateriaAlumno` (`IdMateria`),
-  CONSTRAINT `fkAlumnoMateria` FOREIGN KEY (`IdAlumno`) REFERENCES `alumno` (`numerocontrol`),
+  CONSTRAINT `fkAlumnoMateria` FOREIGN KEY (`IdAlumno`) REFERENCES `alumno` (`NumeroControl`),
   CONSTRAINT `fkMateriaAlumno` FOREIGN KEY (`IdMateria`) REFERENCES `materia` (`clave`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -90,7 +92,7 @@ CREATE TABLE `carrera` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Carrera` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,6 +101,7 @@ CREATE TABLE `carrera` (
 
 LOCK TABLES `carrera` WRITE;
 /*!40000 ALTER TABLE `carrera` DISABLE KEYS */;
+INSERT INTO `carrera` VALUES (1,'Mecatronica'),(2,'Electromecanica'),(3,'Sistemas Computacionales'),(4,'Administración'),(5,'Petrolera'),(6,'Industrial');
 /*!40000 ALTER TABLE `carrera` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,6 +120,7 @@ CREATE TABLE `maestro` (
   `Email` varchar(50) NOT NULL,
   `Contraseña` varchar(16) NOT NULL,
   `IdRol` int(11) NOT NULL,
+  `Activo` bit(1) NOT NULL,
   PRIMARY KEY (`NumeroControl`),
   KEY `fkMaestrosRoles` (`IdRol`),
   CONSTRAINT `fkMaestrosRoles` FOREIGN KEY (`IdRol`) REFERENCES `roles` (`id`)
@@ -171,6 +175,7 @@ CREATE TABLE `materia` (
   `Clave` varchar(8) NOT NULL,
   `Materia` varchar(50) NOT NULL,
   `IdSemestre` int(11) NOT NULL,
+  `Activo` bit(1) NOT NULL,
   PRIMARY KEY (`Clave`),
   KEY `fkMateriaSemestre` (`IdSemestre`),
   CONSTRAINT `fkMateriaSemestre` FOREIGN KEY (`IdSemestre`) REFERENCES `semestre` (`id`)
@@ -197,7 +202,7 @@ CREATE TABLE `roles` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `rol` varchar(40) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,6 +211,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'Alumno'),(2,'Maestro');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,7 +226,7 @@ CREATE TABLE `semestre` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `No_sem` int(11) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -229,8 +235,13 @@ CREATE TABLE `semestre` (
 
 LOCK TABLES `semestre` WRITE;
 /*!40000 ALTER TABLE `semestre` DISABLE KEYS */;
+INSERT INTO `semestre` VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10);
 /*!40000 ALTER TABLE `semestre` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'tutorias'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -241,4 +252,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-10 17:59:59
+-- Dump completed on 2021-02-17 19:41:12

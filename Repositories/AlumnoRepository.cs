@@ -16,15 +16,18 @@ namespace Tutorias.Repositories
             if (error != "")
                 throw new ArgumentException(error);
 
+            //Verifica si el alumno tiene una cuenta activa
             if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombres == alumno.Nombres && x.ApPaterno == alumno.ApPaterno
          && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == true))
                 throw new ArgumentException("El alumno ya ha sido registrado");
-            
+            //Verifica si el numero de control se esta utilizando por un usuario activo
             if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Activo==true ))
                 throw new ArgumentException("El numero de control ya ha sido registrado");
+            //Verifica si el email se esta utilizando por un usuario activo
             if (GetAll().Any(x => x.Email == alumno.Email && x.Activo==true))
                 throw new ArgumentException("El email ya ha sido registrado");
 
+            //Si el alumno ya ha se a registrado y se dio de baja lo activa y actualiza datos
             if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombres == alumno.Nombres && x.ApPaterno == alumno.ApPaterno
                     && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == false))
             {
@@ -37,7 +40,7 @@ namespace Tutorias.Repositories
                 Update(alumnoBD);
 
             }
-
+            //Si es nuevo lo agrega
             else
             {
 
@@ -69,7 +72,7 @@ namespace Tutorias.Repositories
             if (error != "")
                 throw new ApplicationException(error);
 
-            if (GetAll().Any(x => x.Email == alumno.Email))
+            if (GetAll().Any(x => x.Email == alumno.Email && x.Activo == true))
                 throw new ArgumentException("El email ya ha sido registrado");
 
             var alumnoBD = GetById(alumno.NumeroControl);
@@ -87,11 +90,25 @@ namespace Tutorias.Repositories
 
         }
 
+        //Baja logica
+        //public void DeleteAlumno(int Id)
+        //{
+        //    var alumD = GetById(Id);
+
+        //    if (alumD != null)
+        //    {
+        //        alumD.Activo = false;
+        //        Update(alumD);
+        //    }
+
+        //}
 
         string Validar(AlumnoViewModel alumno)
-        {
+        { 
             if (string.IsNullOrEmpty(alumno.NumeroControl))
                 return "Proporcione su numero de control";
+            if ((alumno.NumeroControl).Length != 8)
+                return "Verifique su numero de control";
             if (string.IsNullOrEmpty(alumno.Nombres))
                 return "Proporcione su nombre";
             if (string.IsNullOrEmpty(alumno.ApPaterno))
@@ -110,5 +127,5 @@ namespace Tutorias.Repositories
             return "";
 
         }
-    }
+}
 }

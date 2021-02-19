@@ -17,7 +17,6 @@ namespace Tutorias.Models
         public string Email { get; set; }
         public string Contraseña { get; set; }
         public int IdRol { get; set; }
-        public bool Activo { get; set; }
 
         public Roles IdRolNavigation { get; set; }
         public ICollection<Maestrosmateria> Maestrosmateria { get; set; }

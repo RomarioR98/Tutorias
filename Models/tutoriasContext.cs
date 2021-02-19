@@ -28,7 +28,6 @@ namespace Tutorias.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseMySql("server=localhost; user id=root; password=root; database=tutorias;");
             }
         }
@@ -52,8 +51,6 @@ namespace Tutorias.Models
 
                 entity.Property(e => e.NumeroControl).HasColumnType("varchar(8)");
 
-                entity.Property(e => e.Activo).HasColumnType("bit(1)");
-
                 entity.Property(e => e.ApMaterno)
                     .IsRequired()
                     .HasColumnType("varchar(30)");
@@ -64,7 +61,7 @@ namespace Tutorias.Models
 
                 entity.Property(e => e.Contraseña)
                     .IsRequired()
-                    .HasColumnType("varchar(200)");
+                    .HasColumnType("varchar(16)");
 
                 entity.Property(e => e.Email)
                     .IsRequired()
@@ -155,8 +152,6 @@ namespace Tutorias.Models
 
                 entity.Property(e => e.NumeroControl).HasColumnType("varchar(4)");
 
-                entity.Property(e => e.Activo).HasColumnType("bit(1)");
-
                 entity.Property(e => e.ApMaterno)
                     .IsRequired()
                     .HasColumnType("varchar(30)");
@@ -229,8 +224,6 @@ namespace Tutorias.Models
                     .HasName("fkMateriaSemestre");
 
                 entity.Property(e => e.Clave).HasColumnType("varchar(8)");
-
-                entity.Property(e => e.Activo).HasColumnType("bit(1)");
 
                 entity.Property(e => e.IdSemestre).HasColumnType("int(11)");
 

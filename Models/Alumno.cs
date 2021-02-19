@@ -19,7 +19,6 @@ namespace Tutorias.Models
         public int IdSemestre { get; set; }
         public int IdCarrera { get; set; }
         public int IdRol { get; set; }
-        public bool Activo { get; set; }
 
         public Carrera IdCarreraNavigation { get; set; }
         public Roles IdRolNavigation { get; set; }

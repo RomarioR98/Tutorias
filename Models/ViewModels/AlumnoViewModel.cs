@@ -17,6 +17,5 @@ namespace Tutorias.Models
         public int IdCarrera { get; set; }
 
         public int IdRol { get; set; }
-        public bool Activo { get; set; }
     }
 }

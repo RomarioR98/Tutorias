@@ -18,6 +18,7 @@ namespace Tutorias.Areas.Alumno.Controllers
     [Authorize(Roles = "Alumno")]
     public class HomeController : Controller
     {
+        [Route("Alumno/")]
         [Route("Alumno/Index")]
         public IActionResult Index()
         {

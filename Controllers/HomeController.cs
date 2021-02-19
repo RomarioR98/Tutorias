@@ -65,6 +65,11 @@ namespace Tutorias.Controllers
         {
             if (string.IsNullOrEmpty(alumno.NumeroControl))
                 return "Proporcione su numero de control";
+<<<<<<< HEAD
+=======
+            if ((alumno.NumeroControl).Length != 8)
+                return "Verifique su numero de control";
+>>>>>>> rama-patty
             if (string.IsNullOrEmpty(alumno.Nombres))
                 return "Proporcione su nombre";
             if (string.IsNullOrEmpty(alumno.ApPaterno))

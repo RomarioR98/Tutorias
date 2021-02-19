@@ -197,7 +197,7 @@ label
 /*Agregar Alumno*/
 .formAgAlum, .formReadAl {
     width: 600px;
-    height: 550px;
+    height:auto;
     margin-bottom: 10px;
 }
 

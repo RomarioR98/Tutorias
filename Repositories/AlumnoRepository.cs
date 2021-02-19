@@ -17,6 +17,7 @@ namespace Tutorias.Repositories
             if (error != "")
                 throw new ArgumentException(error);
 
+<<<<<<< HEAD
             if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl))
                 throw new ArgumentException("El numero de control ya ha sido registrado");
             if (GetAll().Any(x => x.Email == alumno.Email))
@@ -35,6 +36,52 @@ namespace Tutorias.Repositories
                 IdRol = 1
             };
             Insert(alum);
+=======
+            //Verifica si el alumno tiene una cuenta activa
+            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombres == alumno.Nombres && x.ApPaterno == alumno.ApPaterno
+         && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == true))
+                throw new ArgumentException("El alumno ya ha sido registrado");
+            //Verifica si el numero de control se esta utilizando por un usuario activo
+            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Activo==true ))
+                throw new ArgumentException("El numero de control ya ha sido registrado");
+            //Verifica si el email se esta utilizando por un usuario activo
+            if (GetAll().Any(x => x.Email == alumno.Email && x.Activo==true))
+                throw new ArgumentException("El email ya ha sido registrado");
+
+            //Si el alumno ya ha se a registrado y se dio de baja lo activa y actualiza datos
+            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombres == alumno.Nombres && x.ApPaterno == alumno.ApPaterno
+                    && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == false))
+            {
+                var alumnoBD = GetById(alumno.NumeroControl);
+
+                alumnoBD.Activo = true;
+                alumnoBD.Contraseña = Encrypt.GetMD5(alumno.Contraseña);
+                alumnoBD.IdSemestre = alumno.IdSemestre;
+                alumnoBD.IdCarrera = alumno.IdCarrera;
+                Update(alumnoBD);
+
+            }
+            //Si es nuevo lo agrega
+            else
+            {
+
+                Alumno alum = new Alumno()
+                {
+                    NumeroControl = alumno.NumeroControl.ToUpper(),
+                    Nombres = alumno.Nombres,
+                    ApPaterno = alumno.ApPaterno,
+                    ApMaterno = alumno.ApMaterno,
+                    Email = alumno.Email,
+                    Contraseña = Encrypt.GetMD5(alumno.Contraseña),
+                    IdSemestre = alumno.IdSemestre,
+                    IdCarrera = alumno.IdCarrera,
+                    IdRol = 1,
+                    Activo = true
+
+                };
+                Insert(alum);
+            }
+>>>>>>> rama-patty
         }
 
         public void UpdateAlumno(AlumnoViewModel alumno)
@@ -47,7 +94,11 @@ namespace Tutorias.Repositories
             if (error != "")
                 throw new ApplicationException(error);
 
+<<<<<<< HEAD
             if (GetAll().Any(x=>x.Email==alumno.Email))
+=======
+            if (GetAll().Any(x => x.Email == alumno.Email && x.Activo == true))
+>>>>>>> rama-patty
                 throw new ArgumentException("El email ya ha sido registrado");
 
             var alumnoBD = GetById(alumno.NumeroControl);
@@ -65,11 +116,25 @@ namespace Tutorias.Repositories
 
                     }
 
+        //Baja logica
+        //public void DeleteAlumno(int Id)
+        //{
+        //    var alumD = GetById(Id);
+
+        //    if (alumD != null)
+        //    {
+        //        alumD.Activo = false;
+        //        Update(alumD);
+        //    }
+
+        //}
 
         string Validar(AlumnoViewModel alumno)
-        {
+        { 
             if (string.IsNullOrEmpty(alumno.NumeroControl))
                 return "Proporcione su numero de control";
+            if ((alumno.NumeroControl).Length != 8)
+                return "Verifique su numero de control";
             if (string.IsNullOrEmpty(alumno.Nombres))
                 return "Proporcione su nombre";
             if (string.IsNullOrEmpty(alumno.ApPaterno))
@@ -88,5 +153,5 @@ namespace Tutorias.Repositories
             return "";
 
         }
-    }
+}
 }

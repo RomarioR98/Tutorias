@@ -1,11 +1,4 @@
-C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
-C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\bin\Debug\netcoreapp2.1\Tutorias.deps.json
-C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\bin\Debug\netcoreapp2.1\Tutorias.runtimeconfig.json
-C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\bin\Debug\netcoreapp2.1\Tutorias.runtimeconfig.dev.json
-C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\bin\Debug\netcoreapp2.1\Tutorias.dll
-C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\bin\Debug\netcoreapp2.1\Tutorias.pdb
-C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\bin\Debug\netcoreapp2.1\Tutorias.Views.dll
-C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\bin\Debug\netcoreapp2.1\Tutorias.Views.pdb
+C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.csprojAssemblyReference.cache
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.RazorAssemblyInfo.cache
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.RazorAssemblyInfo.cs
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.AssemblyInfoInputs.cache
@@ -28,8 +21,5 @@ C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Razor\V
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.RazorTargetAssemblyInfo.cache
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.RazorTargetAssemblyInfo.cs
-C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.Views.pdb
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.dll
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.pdb
-C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.csproj.CopyComplete
-C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.csprojAssemblyReference.cache

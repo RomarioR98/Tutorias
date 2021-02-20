@@ -17,11 +17,6 @@ namespace Tutorias.Repositories
             if (error != "")
                 throw new ArgumentException(error);
 
-<<<<<<< HEAD
-            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl))
-                throw new ArgumentException("El numero de control ya ha sido registrado");
-            if (GetAll().Any(x => x.Email == alumno.Email))
-                throw new ArgumentException("El email ya ha sido registrado");
 
             Alumno alum = new Alumno()
             {
@@ -36,25 +31,25 @@ namespace Tutorias.Repositories
                 IdRol = 1
             };
             Insert(alum);
-=======
+
             //Verifica si el alumno tiene una cuenta activa
             if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombres == alumno.Nombres && x.ApPaterno == alumno.ApPaterno
-         && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == true))
+         && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email ))
                 throw new ArgumentException("El alumno ya ha sido registrado");
             //Verifica si el numero de control se esta utilizando por un usuario activo
-            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Activo==true ))
+            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper()))
                 throw new ArgumentException("El numero de control ya ha sido registrado");
             //Verifica si el email se esta utilizando por un usuario activo
-            if (GetAll().Any(x => x.Email == alumno.Email && x.Activo==true))
+            if (GetAll().Any(x => x.Email == alumno.Email ))
                 throw new ArgumentException("El email ya ha sido registrado");
 
             //Si el alumno ya ha se a registrado y se dio de baja lo activa y actualiza datos
             if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombres == alumno.Nombres && x.ApPaterno == alumno.ApPaterno
-                    && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == false))
+                    && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email ))
             {
                 var alumnoBD = GetById(alumno.NumeroControl);
 
-                alumnoBD.Activo = true;
+                //alumnoBD.Activo = true;
                 alumnoBD.Contraseña = Encrypt.GetMD5(alumno.Contraseña);
                 alumnoBD.IdSemestre = alumno.IdSemestre;
                 alumnoBD.IdCarrera = alumno.IdCarrera;
@@ -76,12 +71,12 @@ namespace Tutorias.Repositories
                     IdSemestre = alumno.IdSemestre,
                     IdCarrera = alumno.IdCarrera,
                     IdRol = 1,
-                    Activo = true
+                    //Activo = true
 
                 };
                 Insert(alum);
             }
->>>>>>> rama-patty
+
         }
 
         public void UpdateAlumno(AlumnoViewModel alumno)
@@ -94,11 +89,9 @@ namespace Tutorias.Repositories
             if (error != "")
                 throw new ApplicationException(error);
 
-<<<<<<< HEAD
-            if (GetAll().Any(x=>x.Email==alumno.Email))
-=======
-            if (GetAll().Any(x => x.Email == alumno.Email && x.Activo == true))
->>>>>>> rama-patty
+
+            if (GetAll().Any(x => x.Email == alumno.Email))
+
                 throw new ArgumentException("El email ya ha sido registrado");
 
             var alumnoBD = GetById(alumno.NumeroControl);

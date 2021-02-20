@@ -67,7 +67,11 @@ namespace AspNetCore
         ");
             EndContext();
             BeginContext(417, 933, false);
+<<<<<<< HEAD
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b4434ec348e046cab2880d23336a327b", async() => {
+=======
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e5aff5b0b2e24fa3b67e93d087fc176c", async() => {
+>>>>>>> rama-patty
                 BeginContext(440, 746, true);
                 WriteLiteral(@"
             <div class=""input-group mb-3 "">

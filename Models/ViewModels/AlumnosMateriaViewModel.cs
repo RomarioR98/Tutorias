@@ -10,5 +10,7 @@ namespace Tutorias.Models
         public int Id { get; set; }
         public string IdMateria { get; set; }
         public string IdAlumno { get; set; }
+
+        public Materia IdMateriaNavigation { get; set; }
     }
 }

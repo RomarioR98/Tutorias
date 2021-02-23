@@ -9,6 +9,36 @@ namespace Tutorias.Repositories
 {
     public class AlumnoRepository : Repository<Alumno>
     {
+        public IEnumerable<Materia> GetMateriasbySemestre(int semestre)
+        {
+            tutoriasContext context = new tutoriasContext();
+            return context.Materia.Where(x => x.IdSemestreNavigation.NoSem == semestre)
+                .Select(x => new Materia
+                {
+                    Clave = x.Clave,
+                    Materia1 = x.Materia1
+
+                });
+
+
+        }
+        public IEnumerable<Alumnosmateria> GetAlumnosMateriaById(string Id)
+        {
+            tutoriasContext context = new tutoriasContext();
+            return context.Alumnosmateria.Where(x => x.IdAlumno == Id).Select(
+                x => new Alumnosmateria
+                {
+                    Id = x.Id,
+                    IdMateria = x.IdMateria
+                   
+                    
+
+                });
+        }
+
+
+
+
         public void InsertAlumno(AlumnoViewModel alumno)
         {
             string error = Validar(alumno);

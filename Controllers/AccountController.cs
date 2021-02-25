@@ -38,7 +38,7 @@ namespace Tutorias.Controllers
 					var claims = new List<Claim>
 						{
 							new Claim(ClaimTypes.Name, usuario.NumeroControl),
-							new Claim(ClaimTypes.Role, usuario.IdRolNavigation.Rol),
+							new Claim(ClaimTypes.Role, usuario.RolNavigation.Rol),
 							new Claim("Id", usuario.NumeroControl.ToString()),
 						};
 					ClaimsIdentity identity = new ClaimsIdentity(claims, "login");
@@ -81,7 +81,7 @@ namespace Tutorias.Controllers
 					var claims = new List<Claim>
 						{
 							new Claim(ClaimTypes.Name, usuario.NumeroControl),
-							new Claim(ClaimTypes.Role, usuario.IdRolNavigation.Rol),
+							new Claim(ClaimTypes.Role, usuario.RolNavigation.Rol),
 							new Claim("Id", usuario.NumeroControl.ToString()),
 						};
 					ClaimsIdentity identity = new ClaimsIdentity(claims, "login");

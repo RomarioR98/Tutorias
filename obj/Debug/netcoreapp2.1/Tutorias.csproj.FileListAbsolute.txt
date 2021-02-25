@@ -34,3 +34,4 @@ C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutoria
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.csproj.CopyComplete
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.csprojAssemblyReference.cache
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Razor\Areas\Alumno\Views\Home\Materias.cshtml.g.cs
+C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Razor\Areas\Alumno\Views\Home\AgregarMateriaAlum.cshtml.g.cs

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
--- Host: localhost    Database: tutorias
+-- Host: localhost    Database: tutobd
 -- ------------------------------------------------------
--- Server version	8.0.12
+-- Server version	8.0.13
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,22 +24,20 @@ DROP TABLE IF EXISTS `alumno`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `alumno` (
   `NumeroControl` varchar(8) NOT NULL,
-  `Nombres` varchar(50) NOT NULL,
+  `Nombre` varchar(50) NOT NULL,
   `ApPaterno` varchar(30) NOT NULL,
   `ApMaterno` varchar(30) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Contraseña` varchar(200) NOT NULL,
   `IdSemestre` int(11) NOT NULL,
   `IdCarrera` int(11) NOT NULL,
-  `IdRol` int(11) NOT NULL,
+  `Rol` varchar(30) NOT NULL,
   `Activo` bit(1) NOT NULL,
   PRIMARY KEY (`NumeroControl`),
   KEY `fkAlumnoCarrera` (`IdCarrera`),
   KEY `fkAlumnoSemestre` (`IdSemestre`),
-  KEY `fkAlumnosRoles` (`IdRol`),
   CONSTRAINT `fkAlumnoCarrera` FOREIGN KEY (`IdCarrera`) REFERENCES `carrera` (`id`),
-  CONSTRAINT `fkAlumnoSemestre` FOREIGN KEY (`IdSemestre`) REFERENCES `semestre` (`id`),
-  CONSTRAINT `fkAlumnosRoles` FOREIGN KEY (`IdRol`) REFERENCES `roles` (`id`)
+  CONSTRAINT `fkAlumnoSemestre` FOREIGN KEY (`IdSemestre`) REFERENCES `semestre` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -49,7 +47,7 @@ CREATE TABLE `alumno` (
 
 LOCK TABLES `alumno` WRITE;
 /*!40000 ALTER TABLE `alumno` DISABLE KEYS */;
-INSERT INTO `alumno` VALUES ('151G0242','pstty','salazar','De Leon','pattyguiselle@hotmail.com','kdlkkd',3,3,1,_binary '\0'),('161g023','patty','Garcia','De Leon','pattyguiselle89@hotmail.com','b5bcb826e0e4f6e130443cda06903d72',1,4,1,_binary '\0'),('161G0241','Roma','Rodriguez','Anguiano','romar98@hotmail.com','aec6500cec2a7aea5d70d829fd8cba9e',1,4,1,_binary '\0'),('161G0242','patty','salazar','De León','pattyguiselle@hotmail.com','ldckdñl',1,4,1,_binary '\0'),('161g0248','Alejandro','Garcia','De León','pattyguiselle897@hotmail.com','a105be819c569edb0a428e03d80e7265',1,4,1,_binary '\0'),('161G089','Alejandro','Garcia','Cardona','pattyguiselle@hotmail.com','lcvlkclkñ',10,1,1,_binary '\0');
+INSERT INTO `alumno` VALUES ('161G0237','Francisco Romario','Rodriguez','Anguiano','161G0237@rcarbonifera.tecnm.mx','romario98',9,3,'Alumno',_binary '');
 /*!40000 ALTER TABLE `alumno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,16 +112,14 @@ DROP TABLE IF EXISTS `maestro`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `maestro` (
   `NumeroControl` varchar(4) NOT NULL,
-  `Nombres` varchar(50) NOT NULL,
+  `Nombre` varchar(50) NOT NULL,
   `ApPaterno` varchar(30) NOT NULL,
   `ApMaterno` varchar(30) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Contraseña` varchar(16) NOT NULL,
-  `IdRol` int(11) NOT NULL,
+  `Rol` varchar(30) NOT NULL,
   `Activo` bit(1) NOT NULL,
-  PRIMARY KEY (`NumeroControl`),
-  KEY `fkMaestrosRoles` (`IdRol`),
-  CONSTRAINT `fkMaestrosRoles` FOREIGN KEY (`IdRol`) REFERENCES `roles` (`id`)
+  PRIMARY KEY (`NumeroControl`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -150,7 +146,7 @@ CREATE TABLE `maestrosmateria` (
   PRIMARY KEY (`Id`),
   KEY `fkMaestroMateria` (`IdMaestro`),
   KEY `fkMateriaMestro` (`IdMateria`),
-  CONSTRAINT `fkMaestroMateria` FOREIGN KEY (`IdMaestro`) REFERENCES `maestro` (`numerocontrol`),
+  CONSTRAINT `fkMaestroMateria` FOREIGN KEY (`IdMaestro`) REFERENCES `maestro` (`NumeroControl`),
   CONSTRAINT `fkMateriaMestro` FOREIGN KEY (`IdMateria`) REFERENCES `materia` (`clave`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -192,30 +188,6 @@ LOCK TABLES `materia` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `roles`
---
-
-DROP TABLE IF EXISTS `roles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `roles` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `rol` varchar(40) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `roles`
---
-
-LOCK TABLES `roles` WRITE;
-/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'Alumno'),(2,'Maestro');
-/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `semestre`
 --
 
@@ -238,10 +210,6 @@ LOCK TABLES `semestre` WRITE;
 INSERT INTO `semestre` VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10);
 /*!40000 ALTER TABLE `semestre` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'tutorias'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -252,4 +220,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-17 19:41:12
+-- Dump completed on 2021-02-24 15:57:20

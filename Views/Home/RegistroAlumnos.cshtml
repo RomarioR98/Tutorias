@@ -19,7 +19,7 @@
     </div>
     <div class="container my-2">
         <form class="bg-light" method="post" action="~/RegistroAlumnos" enctype="multipart/form-data">
-            <input type="text" asp-for="IdRol" name="IdRol" id="txtIdRoll" class="form-control" aria-describedby="basic-addon1" value="1"  hidden>
+            <input type="text" asp-for="Rol" name="IdRol" id="txtIdRoll" class="form-control" aria-describedby="basic-addon1" value="Alumno"  hidden>
             @*<input type="text" asp-for="Activo" name="Activo" id="txtActivo" class="form-control" aria-describedby="basic-addon1"  hidden>*@
 
             <div class="input-group mb-3 ">
@@ -32,7 +32,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1" for="Nombres">Nombre</span>
                 </div>
-                <input type="text" asp-for="Nombres" name="Nombres" id="txtNombre" class="form-control" aria-describedby="basic-addon1">
+                <input type="text" asp-for="Nombre" name="Nombre" id="txtNombre" class="form-control" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">

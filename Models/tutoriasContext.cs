@@ -21,7 +21,6 @@ namespace Tutorias.Models
         public virtual DbSet<Maestro> Maestro { get; set; }
         public virtual DbSet<Maestrosmateria> Maestrosmateria { get; set; }
         public virtual DbSet<Materia> Materia { get; set; }
-        public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Semestre> Semestre { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -43,9 +42,6 @@ namespace Tutorias.Models
 
                 entity.HasIndex(e => e.IdCarrera)
                     .HasName("fkAlumnoCarrera");
-
-                entity.HasIndex(e => e.IdRol)
-                    .HasName("fkAlumnosRoles");
 
                 entity.HasIndex(e => e.IdSemestre)
                     .HasName("fkAlumnoSemestre");
@@ -72,25 +68,21 @@ namespace Tutorias.Models
 
                 entity.Property(e => e.IdCarrera).HasColumnType("int(11)");
 
-                entity.Property(e => e.IdRol).HasColumnType("int(11)");
-
                 entity.Property(e => e.IdSemestre).HasColumnType("int(11)");
 
-                entity.Property(e => e.Nombres)
+                entity.Property(e => e.Nombre)
                     .IsRequired()
                     .HasColumnType("varchar(50)");
+
+                entity.Property(e => e.Rol)
+                    .IsRequired()
+                    .HasColumnType("varchar(30)");
 
                 entity.HasOne(d => d.IdCarreraNavigation)
                     .WithMany(p => p.Alumno)
                     .HasForeignKey(d => d.IdCarrera)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fkAlumnoCarrera");
-
-                entity.HasOne(d => d.IdRolNavigation)
-                    .WithMany(p => p.Alumno)
-                    .HasForeignKey(d => d.IdRol)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fkAlumnosRoles");
 
                 entity.HasOne(d => d.IdSemestreNavigation)
                     .WithMany(p => p.Alumno)
@@ -150,9 +142,6 @@ namespace Tutorias.Models
 
                 entity.ToTable("maestro");
 
-                entity.HasIndex(e => e.IdRol)
-                    .HasName("fkMaestrosRoles");
-
                 entity.Property(e => e.NumeroControl).HasColumnType("varchar(4)");
 
                 entity.Property(e => e.Activo).HasColumnType("bit(1)");
@@ -173,17 +162,13 @@ namespace Tutorias.Models
                     .IsRequired()
                     .HasColumnType("varchar(50)");
 
-                entity.Property(e => e.IdRol).HasColumnType("int(11)");
-
-                entity.Property(e => e.Nombres)
+                entity.Property(e => e.Nombre)
                     .IsRequired()
                     .HasColumnType("varchar(50)");
 
-                entity.HasOne(d => d.IdRolNavigation)
-                    .WithMany(p => p.Maestro)
-                    .HasForeignKey(d => d.IdRol)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fkMaestrosRoles");
+                entity.Property(e => e.Rol)
+                    .IsRequired()
+                    .HasColumnType("varchar(30)");
             });
 
             modelBuilder.Entity<Maestrosmateria>(entity =>
@@ -244,18 +229,6 @@ namespace Tutorias.Models
                     .HasForeignKey(d => d.IdSemestre)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fkMateriaSemestre");
-            });
-
-            modelBuilder.Entity<Roles>(entity =>
-            {
-                entity.ToTable("roles");
-
-                entity.Property(e => e.Id).HasColumnType("int(11)");
-
-                entity.Property(e => e.Rol)
-                    .IsRequired()
-                    .HasColumnName("rol")
-                    .HasColumnType("varchar(40)");
             });
 
             modelBuilder.Entity<Semestre>(entity =>

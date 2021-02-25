@@ -47,7 +47,7 @@ namespace Tutorias.Repositories
                 throw new ArgumentException(error);
 
             //Verifica si el alumno tiene una cuenta activa
-            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombres == alumno.Nombres && x.ApPaterno == alumno.ApPaterno
+            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombre == alumno.Nombre && x.ApPaterno == alumno.ApPaterno
          && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == true))
                 throw new ArgumentException("El alumno ya ha sido registrado");
             //Verifica si el numero de control se esta utilizando por un usuario activo
@@ -58,13 +58,13 @@ namespace Tutorias.Repositories
                 throw new ArgumentException("El email ya ha sido registrado");
 
             //Si el alumno ya ha se a registrado y se dio de baja lo activa y actualiza datos
-            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombres == alumno.Nombres && x.ApPaterno == alumno.ApPaterno
+            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombre == alumno.Nombre && x.ApPaterno == alumno.ApPaterno
                     && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == false))
             {
                 var alumnoBD = GetById(alumno.NumeroControl);
 
                 alumnoBD.Activo = true;
-                alumnoBD.Contraseña = Encrypt.GetMD5(alumno.Contraseña);
+                alumnoBD.Contraseña = alumno.Contraseña;
                 alumnoBD.IdSemestre = alumno.IdSemestre;
                 alumnoBD.IdCarrera = alumno.IdCarrera;
                 Update(alumnoBD);
@@ -77,14 +77,14 @@ namespace Tutorias.Repositories
                 Alumno alum = new Alumno()
                 {
                     NumeroControl = alumno.NumeroControl.ToUpper(),
-                    Nombres = alumno.Nombres,
+                    Nombre = alumno.Nombre,
                     ApPaterno = alumno.ApPaterno,
                     ApMaterno = alumno.ApMaterno,
                     Email = alumno.Email,
-                    Contraseña = Encrypt.GetMD5(alumno.Contraseña),
+                    Contraseña =alumno.Contraseña, //Encrypt.GetMD5(alumno.Contraseña),
                     IdSemestre = alumno.IdSemestre,
                     IdCarrera = alumno.IdCarrera,
-                    IdRol = 1,
+                    Rol = "Alumno",
                     Activo = true
 
                 };
@@ -107,11 +107,11 @@ namespace Tutorias.Repositories
 
             var alumnoBD = GetById(alumno.NumeroControl);
 
-            alumnoBD.Nombres = alumno.Nombres;
+            alumnoBD.Nombre = alumno.Nombre;
             alumnoBD.ApPaterno = alumno.ApPaterno;
             alumnoBD.ApMaterno = alumno.ApMaterno;
             alumnoBD.Email = alumno.Email;
-            alumnoBD.Contraseña = Encrypt.GetMD5(alumno.Contraseña);
+            alumnoBD.Contraseña = alumno.Contraseña; /*Encrypt.GetMD5(alumno.Contraseña);*/
             alumnoBD.IdSemestre = alumno.IdSemestre;
             alumnoBD.IdCarrera = alumno.IdCarrera;
 
@@ -139,7 +139,7 @@ namespace Tutorias.Repositories
                 return "Proporcione su numero de control";
             if ((alumno.NumeroControl).Length != 8)
                 return "Verifique su numero de control";
-            if (string.IsNullOrEmpty(alumno.Nombres))
+            if (string.IsNullOrEmpty(alumno.Nombre))
                 return "Proporcione su nombre";
             if (string.IsNullOrEmpty(alumno.ApPaterno))
                 return "Proporcione su apellido paterno";

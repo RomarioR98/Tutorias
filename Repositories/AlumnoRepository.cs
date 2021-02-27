@@ -19,8 +19,6 @@ namespace Tutorias.Repositories
                     Materia1 = x.Materia1
 
                 });
-
-
         }
         public IEnumerable<Alumnosmateria> GetAlumnosMateriaById(string Id)
         {
@@ -35,9 +33,6 @@ namespace Tutorias.Repositories
 
                 });
         }
-
-
-
 
         public void InsertAlumno(AlumnoViewModel alumno)
         {
@@ -84,7 +79,7 @@ namespace Tutorias.Repositories
                     Contraseña =alumno.Contraseña, //Encrypt.GetMD5(alumno.Contraseña),
                     IdSemestre = alumno.IdSemestre,
                     IdCarrera = alumno.IdCarrera,
-                    Rol = "Alumno",
+                    Rol = alumno.Rol,
                     Activo = true
 
                 };
@@ -120,18 +115,19 @@ namespace Tutorias.Repositories
 
         }
 
-        //Baja logica
-        //public void DeleteAlumno(int Id)
-        //{
-        //    var alumD = GetById(Id);
+        public void BajaLogicaAlumno(string numctrl)
+        {
+            var alumno = Context.Alumno.FirstOrDefault(x => x.NumeroControl == numctrl);
+            alumno.Activo = false;
+            Update(alumno);
+        }
 
-        //    if (alumD != null)
-        //    {
-        //        alumD.Activo = false;
-        //        Update(alumD);
-        //    }
-
-        //}
+        public void RecuperacionAlumno(string numctrl)
+        {
+            var alumno = Context.Alumno.FirstOrDefault(x => x.NumeroControl == numctrl);
+            alumno.Activo = true;
+            Update(alumno);
+        }
 
         string Validar(AlumnoViewModel alumno)
         { 
@@ -157,5 +153,72 @@ namespace Tutorias.Repositories
             return "";
 
         }
-}
+
+        //Codigo de prueba AlumnoRepository
+        //public AlumnoViewModel GetAlumnoById(string numctrl)
+        //{
+        //    return Context.Alumno.Where(x => x.NumeroControl == numctrl)
+        //        .Select(x => new AlumnoViewModel
+        //        {
+        //            NumeroControl = x.NumeroControl,
+        //            Nombre = x.Nombre,
+        //            ApPaterno = x.ApPaterno,
+        //            ApMaterno = x.ApMaterno,
+        //            Email = x.Email,
+        //            Contraseña = x.Contraseña,
+        //            IdCarrera = x.IdCarrera,
+        //            IdSemestre = x.IdSemestre
+        //        }).FirstOrDefault();
+        //}
+
+        //public void InsertA(AlumnoViewModel alumnoVM)
+        //{
+        //    Alumno alum = new Alumno()
+        //    {
+        //        NumeroControl = alumnoVM.NumeroControl,
+        //        Nombre = alumnoVM.Nombre,
+        //        ApPaterno = alumnoVM.ApPaterno,
+        //        ApMaterno = alumnoVM.ApMaterno,
+        //        Email = alumnoVM.Email,
+        //        Contraseña = alumnoVM.Contraseña,
+        //        IdSemestre = alumnoVM.IdSemestre,
+        //        IdCarrera = alumnoVM.IdCarrera,
+        //        Rol = alumnoVM.Rol,
+        //        Activo = true
+        //    };
+        //    Insert(alum);
+        //    alumnoVM.NumeroControl = alum.NumeroControl;
+        //}
+
+        //public void Update(AlumnoViewModel alumnoVM)
+        //{
+        //    var alumno = Context.Alumno.FirstOrDefault(x => x.NumeroControl == alumnoVM.NumeroControl);
+        //    if (alumno != null)
+        //    {
+        //        alumno.NumeroControl = alumnoVM.NumeroControl;
+        //        alumno.Nombre = alumnoVM.Nombre;
+        //        alumno.ApPaterno = alumnoVM.ApPaterno;
+        //        alumno.ApMaterno = alumnoVM.ApMaterno;
+        //        alumno.Email = alumnoVM.Email;
+        //        alumno.Contraseña = alumnoVM.Contraseña;
+        //        alumno.IdSemestre = alumnoVM.IdSemestre;
+        //        alumno.IdCarrera = alumnoVM.IdCarrera;
+        //        Update(alumno);
+        //    }
+        //}
+
+        //public void BajaLogica(string numctrl)
+        //{
+        //    var alumno = Context.Alumno.FirstOrDefault(x => x.NumeroControl == numctrl);
+        //    alumno.Activo = false;
+        //    Update(alumno);
+        //}
+
+        //public void Recuperacion(string numctrl)
+        //{
+        //    var alumno = Context.Alumno.FirstOrDefault(x => x.NumeroControl == numctrl);
+        //    alumno.Activo = true;
+        //    Update(alumno);
+        //}
+    }
 }

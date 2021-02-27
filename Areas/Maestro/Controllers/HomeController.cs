@@ -19,7 +19,6 @@ namespace Tutorias.Areas.Maestro.Controllers
     [Authorize(Roles = "Maestro")]
     public class HomeController : Controller
     {
-        [Route("Maestro/Index/{id}")]
         public IActionResult Index(string id)
         {
             MateriasRepository repos = new MateriasRepository();

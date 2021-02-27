@@ -15,13 +15,12 @@ namespace Tutorias.Controllers
         {
             return View();
         }
+
         [Route("RegistroAlumnos")]
         public IActionResult RegistroAlumnos()
         {
             return View();
         }
-
-
 
         [Route("RegistroAlumnos")]
         [HttpPost]
@@ -29,7 +28,7 @@ namespace Tutorias.Controllers
         {
             if (alumno != null)
             {
-                string error = Validar(alumno);
+                string error = ValidarAlumno(alumno);
 
                 if (error != "")
                 {
@@ -59,9 +58,37 @@ namespace Tutorias.Controllers
             return View();
         }
 
+        [Route("RegistroMaestros")]
+        [HttpPost]
+        public IActionResult RegistroMaestros(MaestroViewModel maestro)
+        {
+            if (maestro != null)
+            {
+                string error = ValidarMaestro(maestro);
 
+                if (error != "")
+                {
+                    ModelState.AddModelError("Error", error);
+                    return View(maestro);
+                }
 
-        string Validar(AlumnoViewModel alumno)
+                try
+                {
+                    MaestroRepository repos = new MaestroRepository();
+                    repos.InsertMaestro(maestro);
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("Error", ex.Message);
+                    return View(maestro);
+
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        string ValidarAlumno(AlumnoViewModel alumno)
         {
             if (string.IsNullOrEmpty(alumno.NumeroControl))
                 return "Proporcione su numero de control";
@@ -85,5 +112,28 @@ namespace Tutorias.Controllers
             return "";
 
         }
+
+        string ValidarMaestro(MaestroViewModel maestro)
+        {
+            if (string.IsNullOrEmpty(maestro.NumeroControl))
+                return "Proporcione su numero de control";
+            if ((maestro.NumeroControl).Length != 4)
+                return "Verifique su numero de control";
+            if (string.IsNullOrEmpty(maestro.Nombre))
+                return "Proporcione su nombre";
+            if (string.IsNullOrEmpty(maestro.ApPaterno))
+                return "Proporcione su apellido paterno";
+            if (string.IsNullOrEmpty(maestro.ApMaterno))
+                return "Proporcione su apellido materno";
+            if (string.IsNullOrEmpty(maestro.Email))
+                return "Proporcione su email";
+            if (string.IsNullOrEmpty(maestro.Contraseña))
+                return "Proporcione su contraseña";
+
+            return "";
+
+        }
+
+        //Codigo de prueba HomeController
     }
 }

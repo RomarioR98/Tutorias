@@ -23,9 +23,9 @@ namespace Tutorias
             ////AGREGAR EL SERVICIO DE AUTENTICACION VIA COOKIES
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 			{
-                options.LoginPath = "/Login/Alumno/";
-                options.LoginPath = "/Login/Maestro/";
-                options.AccessDeniedPath = "/Login/Denied";
+                options.LoginPath = "/Account/IndexAlumno";
+                options.LoginPath = "/Account/IndexMaestro";
+                options.AccessDeniedPath = "/Account/Denied";
             });
         }
 
@@ -50,11 +50,7 @@ namespace Tutorias
 
                 routes.MapRoute(
                   name: "areas",
-                  template: "{Maestro:exists}/{controller=Home}/{action=Index}/{id?}");
-
-                  routes.MapRoute(
-                  name: "areas2",
-                  template: "{Alumno:exists}/{controller=Home}/{action=Index}/{id?}");
+                  template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
             });
         }

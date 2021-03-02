@@ -14,12 +14,12 @@ using Tutorias.Repositories;
 namespace Tutorias.Areas.Alumno.Controllers
 {
     [Area("Alumno")]
+
     //AGREGAR LOS ROLES QUE PUEDEN INICIAR SESION SEPARADOS POR COMAS
     [Authorize(Roles = "Alumno")]
+
     public class HomeController : Controller
     {
-        [Route("Alumno/")]
-        [Route("Alumno/Index")]
         public IActionResult Index()
         {
             return View();

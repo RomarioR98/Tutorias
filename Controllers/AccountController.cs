@@ -11,13 +11,14 @@ namespace Tutorias.Controllers
 {
     public class AccountController : Controller
     {
-        [Route("Login/Alumno")]
-        public IActionResult IndexAlumno()
-        {
-            return View();
-        }
+		//[Route("Login/Alumno")]
+		public IActionResult IndexAlumno()
+		{
+			return View();
+		}
 
 		//Accion para iniciar sesion como alumno
+		//[Route("Login/Alumno")]
 		[HttpPost]
 		public async Task<IActionResult> IndexAlumno(string user, string password)
 		{
@@ -38,13 +39,13 @@ namespace Tutorias.Controllers
 					var claims = new List<Claim>
 						{
 							new Claim(ClaimTypes.Name, usuario.NumeroControl),
-							new Claim(ClaimTypes.Role, usuario.RolNavigation.Rol),
+							new Claim(ClaimTypes.Role, usuario.Rol),
 							new Claim("Id", usuario.NumeroControl.ToString()),
 						};
 					ClaimsIdentity identity = new ClaimsIdentity(claims, "login");
 					ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 					await HttpContext.SignInAsync(principal);
-					return RedirectToAction("Index/{id}", "Alumno/Home");
+					return RedirectToAction("Index", "Alumno/Home");
 				}
 			}
 			catch (Exception ex)
@@ -54,13 +55,14 @@ namespace Tutorias.Controllers
 			}
 		}
 
-		[Route("Login/Maestro")]
-        public IActionResult IndexMaestro()
-        {
-            return View();
-        }
+		//[Route("Login/Maestro")]
+		public IActionResult IndexMaestro()
+		{
+			return View();
+		}
 
 		//Accion para iniciar sesion como maestro
+		//[Route("Login/Maestro")]
 		[HttpPost]
 		public async Task<IActionResult> IndexMaestro(string user, string password)
 		{
@@ -81,13 +83,13 @@ namespace Tutorias.Controllers
 					var claims = new List<Claim>
 						{
 							new Claim(ClaimTypes.Name, usuario.NumeroControl),
-							new Claim(ClaimTypes.Role, usuario.RolNavigation.Rol),
+							new Claim(ClaimTypes.Role, usuario.Rol),
 							new Claim("Id", usuario.NumeroControl.ToString()),
 						};
 					ClaimsIdentity identity = new ClaimsIdentity(claims, "login");
 					ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 					await HttpContext.SignInAsync(principal);
-					return RedirectToAction("Index/{id}", "Maestro/Home");
+					return RedirectToAction("Index", "Maestro/Home");
 				}
 			}
 			catch (Exception ex)
@@ -97,17 +99,17 @@ namespace Tutorias.Controllers
 			}
 		}
 
-		[Route("Login/Denied")]
+		//[Route("Login/Denied")]
 		public IActionResult Denied()
-        {
-            return View();
-        }
+		{
+			return View();
+		}
 
-        //Acccion para CerrarSesion
-        public IActionResult Logout()
-        {
-            HttpContext.SignOutAsync();
-            return RedirectToAction("Home");
-        }
-    }
+		//Acccion para CerrarSesion
+		public IActionResult Logout()
+		{
+			HttpContext.SignOutAsync();
+			return RedirectToAction("Home");
+		}
+	}
 }

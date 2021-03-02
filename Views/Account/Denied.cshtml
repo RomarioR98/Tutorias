@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Denied";
+    Layout = "_Layout.cshtml";
+}
+
+<header class="cabecera">
+    <div class="container">
+        <h1>Acceso Denegado</h1>
+    </div>
+</header>
+
+<div class="formIsAlum bg-light align-lg-center | mt-2 mx-auto mb-3">
+    <div class="container my-2 bg-light">
+        <form class="bg-light" method="post" action="~/Home/Index">
+            <p>
+                Acceso denegado al usuario @User.Identity.Name con rol @User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Role).Value
+            </p>
+            <input type="submit" name="agregar" class="search-btn" value="Aceptar">
+            @Html.ValidationSummary()
+        </form>
+    </div>
+</div>
+

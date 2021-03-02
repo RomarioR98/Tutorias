@@ -89,6 +89,7 @@ namespace AspNetCore
     <div class=""container my-2 bg-light"">
         ");
             EndContext();
+<<<<<<< HEAD
             BeginContext(614, 2760, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bf18f232d2684d7e9ffa5325161c6173", async() => {
                 BeginContext(709, 16, true);
@@ -186,6 +187,15 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
                 BeginContext(1584, 257, true);
+=======
+            BeginContext(575, 2356, false);
+<<<<<<< HEAD
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bb26c99af8034be889b818724e2d209a", async() => {
+=======
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "11f08c7e10f147019ec668ae5a9041c3", async() => {
+>>>>>>> rama-patty
+                BeginContext(598, 2187, true);
+>>>>>>> 43dc92d35bc61847e47e97ffd6f0ea0cd830e489
                 WriteLiteral(@"
             </div>
             <div class=""input-group mb-3 w-100"">

@@ -14,7 +14,6 @@ namespace Tutorias.Models
         public string Clave { get; set; }
         public string Materia1 { get; set; }
         public int IdSemestre { get; set; }
-        public bool Activo { get; set; }
 
         public Semestre IdSemestreNavigation { get; set; }
         public ICollection<Alumnosmateria> Alumnosmateria { get; set; }

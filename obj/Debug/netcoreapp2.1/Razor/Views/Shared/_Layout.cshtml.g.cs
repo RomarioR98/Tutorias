@@ -53,15 +53,7 @@ namespace AspNetCore
             WriteLiteral("<!DOCTYPE html>\r\n<html lang=\"en\">\r\n");
             EndContext();
             BeginContext(35, 712, false);
-<<<<<<< HEAD
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fd9cb28abf074fb2a10e5fb6bd2a3eca", async() => {
-=======
-<<<<<<< HEAD
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c7350ef31b54dbdbed947fcbfe3ed85", async() => {
-=======
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7caacf95f73f4c8e9e4dc98424eddd54", async() => {
->>>>>>> rama-patty
->>>>>>> 43dc92d35bc61847e47e97ffd6f0ea0cd830e489
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27594342a5504c23895d4ea75c22c91a", async() => {
                 BeginContext(41, 640, true);
                 WriteLiteral(@"
     <title>Tutorias</title>
@@ -75,15 +67,7 @@ namespace AspNetCore
     ");
                 EndContext();
                 BeginContext(681, 55, false);
-<<<<<<< HEAD
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "919ed6ce8e8f4bc498090148168d8903", async() => {
-=======
-<<<<<<< HEAD
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "72bb87958f884adc8c8bef007bda8be0", async() => {
-=======
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9f6e275934e54acf9e423d2a906c3eb6", async() => {
->>>>>>> rama-patty
->>>>>>> 43dc92d35bc61847e47e97ffd6f0ea0cd830e489
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c694844c9e3b4388b66354c1aeea7a55", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -116,17 +100,8 @@ namespace AspNetCore
             BeginContext(747, 2, true);
             WriteLiteral("\r\n");
             EndContext();
-<<<<<<< HEAD
             BeginContext(749, 2574, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c392e8c283f4b37a594e83645eede82", async() => {
-=======
-            BeginContext(749, 2562, false);
-<<<<<<< HEAD
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "37b5b806df554480b8e4d49a8448e7b4", async() => {
-=======
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4fdd019e32bc43f587edbcbdd5b898fc", async() => {
->>>>>>> rama-patty
->>>>>>> 43dc92d35bc61847e47e97ffd6f0ea0cd830e489
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a5a4759deded4c6b982cc38aeb674cd2", async() => {
                 BeginContext(755, 735, true);
                 WriteLiteral(@"
 
@@ -144,21 +119,10 @@ namespace AspNetCore
                    <div class=""dropdown-menu"" aria-labelledby=""navbarDropdownMenuLink"">
                        ");
                 EndContext();
-<<<<<<< HEAD
                 BeginContext(1490, 77, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9d15f95c42184fb8a90ec59e9145790f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7765731bb424476cbd587dcc44e3d9bd", async() => {
                     BeginContext(1555, 8, true);
                     WriteLiteral("Maestros");
-=======
-                BeginContext(1490, 75, false);
-<<<<<<< HEAD
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "97ceae9c2a144301ba141f51858f7e5f", async() => {
-=======
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dc7833bf297741fa87bd3565fa9dbef8", async() => {
->>>>>>> rama-patty
-                    BeginContext(1554, 7, true);
-                    WriteLiteral("Alumnos");
->>>>>>> 43dc92d35bc61847e47e97ffd6f0ea0cd830e489
                     EndContext();
                 }
                 );
@@ -178,21 +142,10 @@ namespace AspNetCore
                 BeginContext(1567, 25, true);
                 WriteLiteral("\r\n                       ");
                 EndContext();
-<<<<<<< HEAD
                 BeginContext(1592, 75, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f95bdd24caf74f94aca2b82f63e5734d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4fb176e31e074da5b143c4c8b7762817", async() => {
                     BeginContext(1656, 7, true);
                     WriteLiteral("Alumnos");
-=======
-                BeginContext(1590, 77, false);
-<<<<<<< HEAD
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a05e2a9635794a0db4ab3afc85290043", async() => {
-=======
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4827580c7093481bb7977f90cd3baa42", async() => {
->>>>>>> rama-patty
-                    BeginContext(1655, 8, true);
-                    WriteLiteral("Maestros");
->>>>>>> 43dc92d35bc61847e47e97ffd6f0ea0cd830e489
                     EndContext();
                 }
                 );
@@ -220,19 +173,9 @@ namespace AspNetCore
                    <div class=""dropdown-menu"" aria-labelledby=""navbarDropdownMenuLink"">
                        ");
                 EndContext();
-<<<<<<< HEAD
                 BeginContext(2176, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70d4847bfc614eb5983ce9785ac3356b", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "435b62c0a85b4972bc6f744e2e8092a9", async() => {
                     BeginContext(2231, 8, true);
-=======
-                BeginContext(2178, 60, false);
-<<<<<<< HEAD
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e4e8886518794f18a8fdde05d13fdb78", async() => {
-=======
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac678219de0b403db17f0830c3adbf2c", async() => {
->>>>>>> rama-patty
-                    BeginContext(2226, 8, true);
->>>>>>> 43dc92d35bc61847e47e97ffd6f0ea0cd830e489
                     WriteLiteral("Maestros");
                     EndContext();
                 }
@@ -252,19 +195,9 @@ namespace AspNetCore
                 BeginContext(2243, 25, true);
                 WriteLiteral("\r\n                       ");
                 EndContext();
-<<<<<<< HEAD
                 BeginContext(2268, 65, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ba169301b0af4dee88422fd42686bc7d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "823c87b88a7b4e6088b6c13d511def97", async() => {
                     BeginContext(2322, 7, true);
-=======
-                BeginContext(2263, 58, false);
-<<<<<<< HEAD
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b72533ca0fc74116b16f1ea5e215df57", async() => {
-=======
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3794a094395946a583251c7ffa39234d", async() => {
->>>>>>> rama-patty
-                    BeginContext(2310, 7, true);
->>>>>>> 43dc92d35bc61847e47e97ffd6f0ea0cd830e489
                     WriteLiteral("Alumnos");
                     EndContext();
                 }

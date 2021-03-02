@@ -46,25 +46,21 @@ namespace Tutorias.Repositories
             Alumno alum = new Alumno()
             {
                 NumeroControl = alumno.NumeroControl.ToLower(),
-                Nombres = alumno.Nombres,
+                Nombre = alumno.Nombre,
                 ApPaterno = alumno.ApPaterno,
                 ApMaterno = alumno.ApMaterno,
                 Email = alumno.Email,
                 Contraseña = Encrypt.GetMD5(alumno.Contraseña),
                 IdSemestre = alumno.IdSemestre,
                 IdCarrera = alumno.IdCarrera,
-                IdRol = 1
+                Rol = alumno.Rol
             };
             Insert(alum);
 
             //Verifica si el alumno tiene una cuenta activa
-<<<<<<< HEAD
             if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombre == alumno.Nombre && x.ApPaterno == alumno.ApPaterno
          && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == true))
-=======
-            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombres == alumno.Nombres && x.ApPaterno == alumno.ApPaterno
-         && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email ))
->>>>>>> 43dc92d35bc61847e47e97ffd6f0ea0cd830e489
+
                 throw new ArgumentException("El alumno ya ha sido registrado");
             //Verifica si el numero de control se esta utilizando por un usuario activo
             if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper()))
@@ -74,7 +70,7 @@ namespace Tutorias.Repositories
                 throw new ArgumentException("El email ya ha sido registrado");
 
             //Si el alumno ya ha se a registrado y se dio de baja lo activa y actualiza datos
-<<<<<<< HEAD
+
             if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombre == alumno.Nombre && x.ApPaterno == alumno.ApPaterno
                     && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == false))
             {
@@ -82,15 +78,6 @@ namespace Tutorias.Repositories
 
                 alumnoBD.Activo = true;
                 alumnoBD.Contraseña = alumno.Contraseña;
-=======
-            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombres == alumno.Nombres && x.ApPaterno == alumno.ApPaterno
-                    && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email ))
-            {
-                var alumnoBD = GetById(alumno.NumeroControl);
-
-                //alumnoBD.Activo = true;
-                alumnoBD.Contraseña = Encrypt.GetMD5(alumno.Contraseña);
->>>>>>> 43dc92d35bc61847e47e97ffd6f0ea0cd830e489
                 alumnoBD.IdSemestre = alumno.IdSemestre;
                 alumnoBD.IdCarrera = alumno.IdCarrera;
                 Update(alumnoBD);
@@ -100,7 +87,7 @@ namespace Tutorias.Repositories
             else
             {
 
-                Alumno alum = new Alumno()
+                Alumno a = new Alumno()
                 {
                     NumeroControl = alumno.NumeroControl.ToUpper(),
                     Nombre = alumno.Nombre,
@@ -110,16 +97,11 @@ namespace Tutorias.Repositories
                     Contraseña =alumno.Contraseña, //Encrypt.GetMD5(alumno.Contraseña),
                     IdSemestre = alumno.IdSemestre,
                     IdCarrera = alumno.IdCarrera,
-<<<<<<< HEAD
                     Rol = alumno.Rol,
                     Activo = true
-=======
-                    IdRol = 1,
-                    //Activo = true
->>>>>>> 43dc92d35bc61847e47e97ffd6f0ea0cd830e489
 
                 };
-                Insert(alum);
+                Insert(a);
             }
 
         }

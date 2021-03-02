@@ -17,11 +17,8 @@ namespace Tutorias.Models
         public string Contraseña { get; set; }
         public int IdSemestre { get; set; }
         public int IdCarrera { get; set; }
-<<<<<<< HEAD
         public string Rol { get; set; }
         public bool Activo { get; set; }
-=======
-        public int IdRol { get; set; }
->>>>>>> 43dc92d35bc61847e47e97ffd6f0ea0cd830e489
+
     }
 }

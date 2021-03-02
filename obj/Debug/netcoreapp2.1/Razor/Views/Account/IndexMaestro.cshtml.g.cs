@@ -69,19 +69,9 @@ namespace AspNetCore
     <div class=""container my-2 bg-light"">
         ");
             EndContext();
-<<<<<<< HEAD
             BeginContext(417, 928, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d1259e92dbd24917a06f09cf45801d02", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c0034c5d11a49b9b74cade9316fe129", async() => {
                 BeginContext(486, 817, true);
-=======
-            BeginContext(417, 933, false);
-<<<<<<< HEAD
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b4434ec348e046cab2880d23336a327b", async() => {
-=======
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e5aff5b0b2e24fa3b67e93d087fc176c", async() => {
->>>>>>> rama-patty
-                BeginContext(440, 746, true);
->>>>>>> 43dc92d35bc61847e47e97ffd6f0ea0cd830e489
                 WriteLiteral(@"
             <div class=""input-group mb-3 "">
                 <div class=""input-group-prepend"">

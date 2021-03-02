@@ -74,3 +74,4 @@ C:\Users\Romar\OneDrive\Escritorio\Tutorias\Tutorias\obj\Debug\netcoreapp2.1\Tut
 C:\Users\Romar\OneDrive\Escritorio\Tutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.genruntimeconfig.cache
 C:\Users\Romar\OneDrive\Escritorio\Tutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.csproj.CopyComplete
 C:\Users\Romar\OneDrive\Escritorio\Tutorias\Tutorias\obj\Debug\netcoreapp2.1\Razor\Views\Account\Denied.cshtml.g.cs
+C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Razor\Views\Account\Denied.cshtml.g.cs

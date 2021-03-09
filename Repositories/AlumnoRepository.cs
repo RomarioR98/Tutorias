@@ -36,6 +36,7 @@ namespace Tutorias.Repositories
 
         public void InsertAlumno(AlumnoViewModel alumno)
         {
+
             string error = Validar(alumno);
 
             if (error != "")
@@ -43,7 +44,7 @@ namespace Tutorias.Repositories
 
             //Verifica si el alumno tiene una cuenta activa
             if (GetAll().Any(x => x.NumeroControl.ToUpper() == alumno.NumeroControl.ToUpper() && x.Nombre == alumno.Nombre && x.ApPaterno == alumno.ApPaterno
-         && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo==true))
+                    && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == true))
                 throw new ArgumentException("El alumno ya ha sido registrado");
             //Verifica si el numero de control se esta utilizando por un usuario activo
             if (GetAll().Any(x => x.NumeroControl.ToUpper() == alumno.NumeroControl.ToUpper() && x.Activo == true))
@@ -54,7 +55,7 @@ namespace Tutorias.Repositories
 
             //Si el alumno ya ha se a registrado y se dio de baja lo activa y actualiza datos
             if (GetAll().Any(x => x.NumeroControl.ToUpper() == alumno.NumeroControl.ToUpper() && x.Nombre == alumno.Nombre && x.ApPaterno == alumno.ApPaterno
-                    && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == false))
+            && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == false))
             {
                 var alumnoBD = GetById(alumno.NumeroControl);
 
@@ -69,7 +70,7 @@ namespace Tutorias.Repositories
             else
             {
 
-                Alumno alum = new Alumno()
+                Alumno a = new Alumno()
                 {
                     NumeroControl = alumno.NumeroControl.ToUpper(),
                     Nombre = alumno.Nombre,
@@ -83,12 +84,14 @@ namespace Tutorias.Repositories
                     Activo = true
 
                 };
-                Insert(alum);
+                Insert(a);
             }
+
         }
 
         public void UpdateAlumno(AlumnoViewModel alumno)
         {
+
             if (GetById(alumno.NumeroControl).NumeroControl.ToUpper() == alumno.NumeroControl.ToUpper())
                 return;
 
@@ -97,7 +100,9 @@ namespace Tutorias.Repositories
             if (error != "")
                 throw new ApplicationException(error);
 
-            if (GetAll().Any(x => x.Email == alumno.Email && x.Activo == true))
+
+            if (GetAll().Any(x => x.Email == alumno.Email))
+
                 throw new ArgumentException("El email ya ha sido registrado");
 
             var alumnoBD = GetById(alumno.NumeroControl);

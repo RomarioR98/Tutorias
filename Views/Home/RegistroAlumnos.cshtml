@@ -19,7 +19,13 @@
     </div>
     <div class="container my-2">
         <form class="bg-light" method="post" action="~/RegistroAlumnos" enctype="multipart/form-data">
+<<<<<<< HEAD
             <input type="text" asp-for="Rol" name="Rol" class="form-control" aria-describedby="basic-addon1" value="Alumno" hidden>
+=======
+
+            <input type="text" asp-for="Rol" name="Rol" class="form-control" aria-describedby="basic-addon1" value="Alumno"  hidden>
+
+>>>>>>> master
             <div class="input-group mb-3 ">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1" for="NumControl">Numero de Control</span>
@@ -81,13 +87,20 @@
                 <input type="password" name="Contraseña" asp-for="Contraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1">
             </div>
 
+
+
             <input class="btn btn-secondary btn-md float-right | mb-3" type="submit" value="Registrar" id="btnRegistrar" />
+<<<<<<< HEAD
             <br />
+=======
+            <br/>
+
+>>>>>>> master
             <p id="error">
                 @Html.ValidationSummary()
             </p>
-
-
+         
+            
 
         </form>
     </div>

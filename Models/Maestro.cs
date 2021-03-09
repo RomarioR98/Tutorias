@@ -16,8 +16,11 @@ namespace Tutorias.Models
         public string ApMaterno { get; set; }
         public string Email { get; set; }
         public string Contraseña { get; set; }
+
         public string Rol { get; set; }
         public bool Activo { get; set; }
+
+
 
         public ICollection<Maestrosmateria> Maestrosmateria { get; set; }
     }

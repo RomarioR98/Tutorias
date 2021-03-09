@@ -70,11 +70,7 @@ namespace AspNetCore
         ");
             EndContext();
             BeginContext(416, 927, false);
-<<<<<<< HEAD
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8731d10a04e84b919c1e487ec388bb9c", async() => {
-=======
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1f61d4d65624fbe8cca425c2797fcc1", async() => {
->>>>>>> master
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8419e0417bf64441ad4644955da1d1e7", async() => {
                 BeginContext(484, 817, true);
                 WriteLiteral(@"
             <div class=""input-group mb-3 "">

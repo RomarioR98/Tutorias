@@ -40,18 +40,18 @@ namespace Tutorias.Repositories
                 throw new ArgumentException(error);
 
             //Verifica si el alumno tiene una cuenta activa
-            if (GetAll().Any(x => x.NumeroControl == maestroVM.NumeroControl.ToUpper() && x.Nombre == maestroVM.Nombre && x.ApPaterno == maestroVM.ApPaterno
+            if (GetAll().Any(x => x.NumeroControl.ToUpper() == maestroVM.NumeroControl.ToUpper() && x.Nombre == maestroVM.Nombre && x.ApPaterno == maestroVM.ApPaterno
          && x.ApMaterno == maestroVM.ApMaterno && x.Email == maestroVM.Email && x.Activo == true))
                 throw new ArgumentException("El maestro ya ha sido registrado");
             //Verifica si el numero de control se esta utilizando por un usuario activo
-            if (GetAll().Any(x => x.NumeroControl == maestroVM.NumeroControl.ToUpper() && x.Activo == true))
+            if (GetAll().Any(x => x.NumeroControl.ToUpper() == maestroVM.NumeroControl.ToUpper() && x.Activo == true))
                 throw new ArgumentException("El numero de control ya ha sido registrado");
             //Verifica si el email se esta utilizando por un usuario activo
             if (GetAll().Any(x => x.Email == maestroVM.Email && x.Activo == true))
                 throw new ArgumentException("El email ya ha sido registrado");
 
             //Si el alumno ya ha se a registrado y se dio de baja lo activa y actualiza datos
-            if (GetAll().Any(x => x.NumeroControl == maestroVM.NumeroControl.ToUpper() && x.Nombre == maestroVM.Nombre && x.ApPaterno == maestroVM.ApPaterno
+            if (GetAll().Any(x => x.NumeroControl.ToUpper() == maestroVM.NumeroControl.ToUpper() && x.Nombre == maestroVM.Nombre && x.ApPaterno == maestroVM.ApPaterno
                     && x.ApMaterno == maestroVM.ApMaterno && x.Email == maestroVM.Email && x.Activo == false))
             {
                 var maestro = GetById(maestroVM.NumeroControl);
@@ -83,7 +83,7 @@ namespace Tutorias.Repositories
 
         public void UpdateMaestro(MaestroViewModel maestroVM)
         {
-            if (GetById(maestroVM.NumeroControl).NumeroControl == maestroVM.NumeroControl.ToUpper())
+            if (GetById(maestroVM.NumeroControl).NumeroControl.ToUpper() == maestroVM.NumeroControl.ToUpper())
                 return;
 
             string error = Validar(maestroVM);

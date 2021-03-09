@@ -116,7 +116,7 @@ namespace AspNetCore
                 ");
             EndContext();
             BeginContext(1554, 124, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3ae5dcf892814f3eac27255d2b9936b2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87720b3164974c6da803edd5ade57aea", async() => {
                 BeginContext(1607, 67, true);
                 WriteLiteral("\r\n                    <i class=\"fas fa-plus\"></i>\r\n                ");
                 EndContext();

@@ -92,10 +92,13 @@ namespace Tutorias.Controllers
         {
             if (string.IsNullOrEmpty(alumno.NumeroControl))
                 return "Proporcione su numero de control";
+
             if ((alumno.NumeroControl).Length != 8)
                 return "Verifique su numero de control";
+
+            
             if (string.IsNullOrEmpty(alumno.Nombre))
-                return "Proporcione su nombre";
+               return "Proporcione su nombre";
             if (string.IsNullOrEmpty(alumno.ApPaterno))
                 return "Proporcione su apellido paterno";
             if (string.IsNullOrEmpty(alumno.ApMaterno))

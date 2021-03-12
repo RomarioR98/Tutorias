@@ -28,33 +28,52 @@ namespace Tutorias.Repositories
                 {
                     Id = x.Id,
                     IdMateria = x.IdMateria
-                   
-                    
+
+
 
                 });
         }
 
+        public AlumnoViewModel GetAlumno (string Id)
+        {
+            return Context.Alumno.Where(x => x.NumeroControl == Id).Select(x => new AlumnoViewModel
+            {
+                NumeroControl = x.NumeroControl,
+                Nombre=x.Nombre,
+                ApMaterno=x.ApMaterno,
+                ApPaterno=x.ApPaterno,
+                Email=x.Email,
+                Contraseña=x.Contraseña,
+                IdSemestre=x.IdSemestre,
+                IdCarrera=x.IdCarrera,
+                Rol=x.Rol,
+                Activo=x.Activo
+               
+            }).FirstOrDefault();
+        }
+
         public void InsertAlumno(AlumnoViewModel alumno)
         {
+
             string error = Validar(alumno);
 
             if (error != "")
                 throw new ArgumentException(error);
 
             //Verifica si el alumno tiene una cuenta activa
-            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombre == alumno.Nombre && x.ApPaterno == alumno.ApPaterno
-         && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == true))
+            if (GetAll().Any(x => x.NumeroControl.ToUpper() == alumno.NumeroControl.ToUpper() && x.Nombre == alumno.Nombre && x.ApPaterno == alumno.ApPaterno
+                    && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == true))
                 throw new ArgumentException("El alumno ya ha sido registrado");
             //Verifica si el numero de control se esta utilizando por un usuario activo
-            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Activo==true ))
+            if (GetAll().Any(x => x.NumeroControl.ToUpper() == alumno.NumeroControl.ToUpper() && x.Activo == true))
                 throw new ArgumentException("El numero de control ya ha sido registrado");
             //Verifica si el email se esta utilizando por un usuario activo
-            if (GetAll().Any(x => x.Email == alumno.Email && x.Activo==true))
+            if (GetAll().Any(x => x.Email == alumno.Email && x.Activo == true))
                 throw new ArgumentException("El email ya ha sido registrado");
 
             //Si el alumno ya ha se a registrado y se dio de baja lo activa y actualiza datos
-            if (GetAll().Any(x => x.NumeroControl == alumno.NumeroControl.ToUpper() && x.Nombre == alumno.Nombre && x.ApPaterno == alumno.ApPaterno
-                    && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == false))
+            if (GetAll().Any(x => x.NumeroControl.ToUpper() == alumno.NumeroControl.ToUpper() && x.Nombre == alumno.Nombre && x.ApPaterno == alumno.ApPaterno
+            && x.ApMaterno == alumno.ApMaterno && x.Email == alumno.Email && x.Activo == false))
             {
                 var alumnoBD = GetById(alumno.NumeroControl);
 
@@ -69,27 +88,29 @@ namespace Tutorias.Repositories
             else
             {
 
-                Alumno alum = new Alumno()
+                Alumno a = new Alumno()
                 {
                     NumeroControl = alumno.NumeroControl.ToUpper(),
                     Nombre = alumno.Nombre,
                     ApPaterno = alumno.ApPaterno,
                     ApMaterno = alumno.ApMaterno,
                     Email = alumno.Email,
-                    Contraseña =alumno.Contraseña, //Encrypt.GetMD5(alumno.Contraseña),
+                    Contraseña = alumno.Contraseña, //Encrypt.GetMD5(alumno.Contraseña),
                     IdSemestre = alumno.IdSemestre,
                     IdCarrera = alumno.IdCarrera,
                     Rol = alumno.Rol,
                     Activo = true
 
                 };
-                Insert(alum);
+                Insert(a);
             }
+
         }
 
         public void UpdateAlumno(AlumnoViewModel alumno)
         {
-            if (GetById(alumno.NumeroControl).NumeroControl == alumno.NumeroControl.ToUpper())
+
+            if (GetById(alumno.NumeroControl).NumeroControl.ToUpper() == alumno.NumeroControl.ToUpper())
                 return;
 
             string error = Validar(alumno);
@@ -97,7 +118,9 @@ namespace Tutorias.Repositories
             if (error != "")
                 throw new ApplicationException(error);
 
-            if (GetAll().Any(x => x.Email == alumno.Email && x.Activo == true))
+
+            if (GetAll().Any(x => x.Email == alumno.Email))
+
                 throw new ArgumentException("El email ya ha sido registrado");
 
             var alumnoBD = GetById(alumno.NumeroControl);
@@ -115,22 +138,22 @@ namespace Tutorias.Repositories
 
         }
 
-        public void BajaLogicaAlumno(string numctrl)
-        {
-            var alumno = Context.Alumno.FirstOrDefault(x => x.NumeroControl == numctrl);
-            alumno.Activo = false;
-            Update(alumno);
-        }
+        //public void BajaLogicaAlumno(string numctrl)
+        //{
+        //    var alumno = Context.Alumno.FirstOrDefault(x => x.NumeroControl == numctrl);
+        //    alumno.Activo = false;
+        //    Update(alumno);
+        //}
 
-        public void RecuperacionAlumno(string numctrl)
-        {
-            var alumno = Context.Alumno.FirstOrDefault(x => x.NumeroControl == numctrl);
-            alumno.Activo = true;
-            Update(alumno);
-        }
+        //public void RecuperacionAlumno(string numctrl)
+        //{
+        //    var alumno = Context.Alumno.FirstOrDefault(x => x.NumeroControl == numctrl);
+        //    alumno.Activo = true;
+        //    Update(alumno);
+        //}
 
         string Validar(AlumnoViewModel alumno)
-        { 
+        {
             if (string.IsNullOrEmpty(alumno.NumeroControl))
                 return "Proporcione su numero de control";
             if ((alumno.NumeroControl).Length != 8)

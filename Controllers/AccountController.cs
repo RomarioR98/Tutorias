@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Tutorias.Models;
+using Tutorias.Repositories;
+using Newtonsoft.Json;
 
 namespace Tutorias.Controllers
 {
@@ -22,6 +24,8 @@ namespace Tutorias.Controllers
 		[HttpPost]
 		public async Task<IActionResult> IndexAlumno(string user, string password)
 		{
+		
+			
 			try
 			{
 				tutoriasContext context = new tutoriasContext();
@@ -45,6 +49,8 @@ namespace Tutorias.Controllers
 					ClaimsIdentity identity = new ClaimsIdentity(claims, "login");
 					ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 					await HttpContext.SignInAsync(principal);
+					
+					TempData["data"] = user;
 					return RedirectToAction("Index", "Alumno/Home");
 				}
 			}
@@ -89,6 +95,8 @@ namespace Tutorias.Controllers
 					ClaimsIdentity identity = new ClaimsIdentity(claims, "login");
 					ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 					await HttpContext.SignInAsync(principal);
+
+					TempData["data"] = user;
 					return RedirectToAction("Index", "Maestro/Home");
 				}
 			}

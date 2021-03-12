@@ -21,8 +21,12 @@ namespace Tutorias.Areas.Maestro.Controllers
     {
         public IActionResult Index(string id)
         {
-            MateriasRepository repos = new MateriasRepository();
-            return View(repos.GetMateriasByMaestro(id));
+            //MateriasRepository repos = new MateriasRepository();
+            //return View(repos.GetMateriasByMaestro(id));
+            var datos = TempData["data"] as string;
+            MaestroRepository repo = new MaestroRepository();
+            var a = repo.GetMaestro(datos);
+            return View(a);
         }
     }
 }

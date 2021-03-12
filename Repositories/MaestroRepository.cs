@@ -9,6 +9,23 @@ namespace Tutorias.Repositories
 {
     public class MaestroRepository : Repository<Maestro>
     {
+
+
+        public MaestroViewModel GetMaestro(string Id)
+        {
+            return Context.Maestro.Where(x => x.NumeroControl == Id).Select(x => new MaestroViewModel
+            {
+                NumeroControl = x.NumeroControl,
+                Nombre = x.Nombre,
+                ApMaterno = x.ApMaterno,
+                ApPaterno = x.ApPaterno,
+                Email = x.Email,
+                Contraseña = x.Contraseña,
+                Rol = x.Rol,
+                Activo = x.Activo
+
+            }).FirstOrDefault();
+        }
         public MaestroViewModel GetMaestroById(string numctrl)
         {
             return Context.Maestro.Where(x => x.NumeroControl == numctrl)

@@ -34,6 +34,24 @@ namespace Tutorias.Repositories
                 });
         }
 
+        public AlumnoViewModel GetAlumno (string Id)
+        {
+            return Context.Alumno.Where(x => x.NumeroControl == Id).Select(x => new AlumnoViewModel
+            {
+                NumeroControl = x.NumeroControl,
+                Nombre=x.Nombre,
+                ApMaterno=x.ApMaterno,
+                ApPaterno=x.ApPaterno,
+                Email=x.Email,
+                Contraseña=x.Contraseña,
+                IdSemestre=x.IdSemestre,
+                IdCarrera=x.IdCarrera,
+                Rol=x.Rol,
+                Activo=x.Activo
+               
+            }).FirstOrDefault();
+        }
+
         public void InsertAlumno(AlumnoViewModel alumno)
         {
 
@@ -120,19 +138,19 @@ namespace Tutorias.Repositories
 
         }
 
-        public void BajaLogicaAlumno(string numctrl)
-        {
-            var alumno = Context.Alumno.FirstOrDefault(x => x.NumeroControl == numctrl);
-            alumno.Activo = false;
-            Update(alumno);
-        }
+        //public void BajaLogicaAlumno(string numctrl)
+        //{
+        //    var alumno = Context.Alumno.FirstOrDefault(x => x.NumeroControl == numctrl);
+        //    alumno.Activo = false;
+        //    Update(alumno);
+        //}
 
-        public void RecuperacionAlumno(string numctrl)
-        {
-            var alumno = Context.Alumno.FirstOrDefault(x => x.NumeroControl == numctrl);
-            alumno.Activo = true;
-            Update(alumno);
-        }
+        //public void RecuperacionAlumno(string numctrl)
+        //{
+        //    var alumno = Context.Alumno.FirstOrDefault(x => x.NumeroControl == numctrl);
+        //    alumno.Activo = true;
+        //    Update(alumno);
+        //}
 
         string Validar(AlumnoViewModel alumno)
         {

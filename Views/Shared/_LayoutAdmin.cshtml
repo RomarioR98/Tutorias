@@ -19,7 +19,7 @@
         <a class="navbar-brand text-white" href="#">Tutorias</a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item ">
-                <a id="materias" class="nav-link" style="font-size:19px; color:rgba(255, 255, 255, 0.644);" href="#">Materias</a>
+
             </li>
         </ul>
         <span class="navbar-text dropdown">
@@ -29,6 +29,8 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="#">Mis materias</a>
+                <hr class="dropdown-divider">
+                <a class="dropdown-item" href="../Alumno/index.html">Cuenta</a>
                 <a class="dropdown-item" href="#">Cerrar sesión</a>
 
             </div>
@@ -37,21 +39,62 @@
 
     </nav>
     <!--#######################  Header    #######################-->
-    <header class="cabecera">
-        <div class="container">
-            <h1> Materias</h1>
-        </div>
-    </header>
+    @*<header class="cabecera">
+            <div class="container">
+                <h1> Materias</h1>
+            </div>
+        </header>*@
 
     <main>
         @RenderBody()
     </main>
-    
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+        $("#txtNumControl").prop("disabled", true);
+        $("#txtNombre").prop("disabled", true);
+        $("#txtApPaterno").prop("disabled", true);
+        $("#txtApMaterno").prop("disabled", true);
+        $("#txtEmail").prop("disabled", true);
+        $("#txtContraseña").prop("disabled", true);
+        $("#scrollMat").prop("hidden", true);
+        $("#enEdit").prop("hidden", true);
+        $("#btnGuardar").prop("hidden", true);
+
+
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-1.6.2.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $("#btnEditar").click(function () {
+                $("#txtNumControl").prop("disabled", false);
+                $("#txtNombre").prop("disabled", false);
+                $("#txtApPaterno").prop("disabled", false);
+                $("#txtApMaterno").prop("disabled", false);
+                $("#txtEmail").prop("disabled", false);
+                $("#txtContraseña").prop("disabled", false);
+                $("#scrollMat").prop("hidden", false);
+                $("#enEdit").prop("hidden", false);
+                $("#btnGuardar").prop("hidden", false);
+                $("#enRead").prop("hidden", true);
+                $("#scrollMatVer").prop("hidden", true);
+            });
+
+        });
+
+    </script>
+
+
+
 </body>
 </html>
 

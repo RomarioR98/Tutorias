@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Alumno | Inicio</title>
@@ -19,13 +20,13 @@
         <a class="navbar-brand text-white" href="#">Tutorias</a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item ">
-            
+
             </li>
         </ul>
         <span class="navbar-text dropdown">
 
             <a class="nav-link dropdown-toggle  text-white " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="far fa-user"></i>   Estudiante: Patty Salazar
+                <i class="far fa-user"></i>   Estudiante: @TempData["data"]
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="#">Mis materias</a>
@@ -42,10 +43,10 @@
 
     <!--#######################  Header    #######################-->
     @*<header class="cabecera">
-        <div class="container">
-            <h1>Cuenta</h1>
-        </div>
-    </header>*@
+            <div class="container">
+                <h1>Cuenta</h1>
+            </div>
+        </header>*@
 
     <main>
         @RenderBody()
@@ -57,42 +58,29 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-    <script>
-    $("#txtNumControl").prop("disabled", true);
-    $("#txtNombre").prop("disabled", true);
-    $("#txtApPaterno").prop("disabled", true);
-    $("#txtApMaterno").prop("disabled", true);
-    $("#txtEmail").prop("disabled", true);
-    $("#txtContraseña").prop("disabled", true);
-    //$("#scrollMat").prop("hidden", true);
-    //$("#enEdit").prop("hidden", true);
-    $("#btnGuardar").prop("hidden", true);
+   
 
+        <script src="https://code.jquery.com/jquery-1.6.2.min.js"></script>
+        @*<script>
 
+        $(document).ready(function() {
 
-    </script>
+        $("#btnEditar").click(function(){
+        $("#txtNumControl").prop("disabled", false);
+        $("#txtNombre").prop("disabled", false);
+        $("#txtApPaterno").prop("disabled", false);
+        $("#txtApMaterno").prop("disabled", false);
+        $("#txtEmail").prop("disabled", false);
+        $("#txtContraseña").prop("disabled", false);
+        //$("#scrollMat").prop("hidden", false);
+        //$("#enEdit").prop("hidden", false);
+        $("#btnGuardar").prop("hidden", false);
+        //$("#enRead").prop("hidden", true);
+        //$("#scrollMatVer").prop("hidden", true);
+        });
+        });
 
-    <script src="https://code.jquery.com/jquery-1.6.2.min.js"></script>
-    <script>
-
-    $(document).ready(function() {
-
-	$("#btnEditar").click(function(){
-    $("#txtNumControl").prop("disabled", false);
-    $("#txtNombre").prop("disabled", false);
-    $("#txtApPaterno").prop("disabled", false);
-    $("#txtApMaterno").prop("disabled", false);
-    $("#txtEmail").prop("disabled", false);
-    $("#txtContraseña").prop("disabled", false);
-    //$("#scrollMat").prop("hidden", false);
-    //$("#enEdit").prop("hidden", false);
-    $("#btnGuardar").prop("hidden", false);
-    //$("#enRead").prop("hidden", true);
-    //$("#scrollMatVer").prop("hidden", true);
-    });
-    });
-
-    </script>
+        </script>*@
 
 </body>
 </html>

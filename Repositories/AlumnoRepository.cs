@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Tutorias.Repositories;
 using Tutorias.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Tutorias.Repositories
 {
@@ -34,7 +35,11 @@ namespace Tutorias.Repositories
                 });
         }
 
-        public AlumnoViewModel GetAlumno (string Id)
+        public Alumno GetAlumnoById(string Id)
+        {
+            return Context.Alumno.FirstOrDefault(x => x.NumeroControl == Id);
+        }
+        public AlumnoViewModel GetAlumnoViewModelById (string Id)
         {
             return Context.Alumno.Where(x => x.NumeroControl == Id).Select(x => new AlumnoViewModel
             {
@@ -43,10 +48,10 @@ namespace Tutorias.Repositories
                 ApMaterno=x.ApMaterno,
                 ApPaterno=x.ApPaterno,
                 Email=x.Email,
-                Contraseña=x.Contraseña,
-                IdSemestre=x.IdSemestre,
-                IdCarrera=x.IdCarrera,
-                Rol=x.Rol,
+                Contraseña = x.Contraseña,
+                IdSemestre = x.IdSemestre,
+                IdCarrera = x.IdCarrera,
+                Rol = x.Rol,
                 Activo=x.Activo
                
             }).FirstOrDefault();

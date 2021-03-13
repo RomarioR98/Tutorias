@@ -13,6 +13,7 @@ namespace Tutorias.Controllers
 {
     public class AccountController : Controller
     {
+		
 		//[Route("Login/Alumno")]
 		public IActionResult IndexAlumno()
 		{
@@ -49,9 +50,10 @@ namespace Tutorias.Controllers
 					ClaimsIdentity identity = new ClaimsIdentity(claims, "login");
 					ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 					await HttpContext.SignInAsync(principal);
-					
-					TempData["data"] = user;
-					return RedirectToAction("Index", "Alumno/Home");
+
+				    TempData["data"] = user;
+
+					return RedirectToAction("Index", "Alumno/Home", new { Id=user});
 				}
 			}
 			catch (Exception ex)

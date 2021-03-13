@@ -1,14 +1,10 @@
-﻿@{TempData.Keep("data"); }
-@model Tutorias.Models.Alumno
+﻿
+@model Tutorias.Models.AlumnoViewModel
 @inject Tutorias.Services.MenuService ms
 @{
-    ViewData["Title"] = "Index";
-    Layout = "_LayoutAlumno";
-
+    ViewData["Title"] = "AgregarAlumno";
+    Layout = "~/Views/Shared/_LayoutAlumno.cshtml";
 }
-
-
-@*Checar el tamaño del form*@
 <header class="cabecera">
     <div class="container">
         <h1>Cuenta</h1>
@@ -21,7 +17,7 @@
         <h3 id="eDatosPersonales ">Datos personales</h3>
         <div class="btn-group">
 
-            <a class="btn btn-light" href="~/Alumno/Home/Editar/@Model.NumeroControl">
+            <a class="btn btn-light" id="btnEditar">
                 <i class="fas fa-pen"></i>
             </a>
             <button type="button" href="#" class="btn btn-light">
@@ -32,67 +28,75 @@
     </div>
 
     <div class="container my-2 bg-light">
-        <div name="contenedorForm">
-            <label type="text" name="Rol" id="txtIdRoll" class="form-control" aria-describedby="basic-addon1" value="Alumno" hidden disabled>@Model.Rol</label>
+        <form class="bg-light" method="post" action="~/Alumno/Index" enctype="multipart/form-data">
+            <input type="text" asp-for="Rol" name="Rol" id="txtIdRoll" class="form-control" aria-describedby="basic-addon1" value="Alumno" hidden>
 
             <div class="input-group mb-3 ">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1" for="NumeroControl">Numero de Control</span>
                 </div>
-                <label type="text" name="txtNumControl" id="txtNumControl" class="form-control" aria-describedby="basic-addon1" disabled>@Model.NumeroControl</label>
+                <input type="text" asp-for="NumeroControl" name="txtNumControl" id="txtNumControl" class="form-control" aria-describedby="basic-addon1">
 
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1" for="Nombre" Nombres">Nombre</span>
                 </div>
-                <label type="text" name="Nombre" id="txtNombre" class="form-control" aria-describedby="basic-addon1" disabled>@Model.Nombre</label>
+                <input type="text" asp-for="Nombre" name="Nombre" id="txtNombre" class="form-control" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1" for="ApPaterno">Apellido Paterno</span>
                 </div>
-                <label type="text" name="ApPaterno" id="txtApPaterno" class="form-control" aria-describedby="basic-addon1" disable>@Model.ApPaterno</label>
+                <input type="text" asp-for="ApPaterno" name="ApPaterno" id="txtApPaterno" class="form-control" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1" for="ApMaterno">Apellido Materno</span>
                 </div>
-                <label type="text" name="ApMaterno" id="txtApMaterno" class="form-control" aria-describedby="basic-addon1" disabled>@Model.ApMaterno</label>
+                <input type="text" asp-for="ApMaterno" name="ApMaterno" id="txtApMaterno" class="form-control" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Semestre</span>
                 </div>
-                @*<label type="text"  name="IdSemestre" id="txtIdSemestre" class="form-control" aria-describedby="basic-addon1" disabled >@Model.IdSemestreNavigation.NoSem</label>*@
-
-
+                <select required asp-for="IdSemestre" name="IdSemestre" type="text" class="form-control" aria-label="Default select example">
+                    @foreach (var item in ms.GetSemestres())
+                    {
+                        <option value="@item.Id">@item.NoSem</option>
+                    }
+                </select>
             </div>
 
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Carrera</span>
                 </div>
-                @*<label type="text" name="IdCarrera" id="txtIdCarrera" class="form-control" aria-describedby="basic-addon1" disabled>@Model.IdCarreraNavigation.Carrera1</label>*@
+                <select asp-for="IdCarrera" name="IdCarrera" class="form-control" aria-label="Default select example">
 
+                    @foreach (var item in ms.GetCarreras())
+                    {
+                        <option value="@item.Id">@item.Carrera1</option>
+                    }
+
+                </select>
             </div>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1" for="Email">Email</span>
                 </div>
-                <label type="email" name="Email" id="txtEmail" class="form-control" aria-describedby="basic-addon1" disabled>@Model.Email</label>
+                <input type="email" asp-for="Email" name="Email" id="txtEmail" class="form-control" aria-describedby="basic-addon1">
             </div>
 
-            @*<div class="input-group mb-3 w-100">
+            <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1" for="Contraseña">Contraseña</span>
                 </div>
-                <label typename="txtContraseña" id="txtContraseña" class="form-control password" aria-describedby="basic-addon1" disabled>@Model.Contraseña</label>
+                <input type="password" asp-for="Contraseña" name="txtContraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1">
             </div>
-        </div>*@
-            
 
-         
+            <button class="btn btn-secondary btn-md float-right | mb-3" id="btnGuardar" name="btnGuardar" type="submit">Guardar</button>
+        </form>
     </div>
 
 </div>

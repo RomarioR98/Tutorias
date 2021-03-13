@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Newtonsoft.Json;
 using Tutorias.Models;
 using Tutorias.Repositories;
@@ -21,12 +22,27 @@ namespace Tutorias.Areas.Alumno.Controllers
 
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string Id)
         {
-            var datos = TempData["data"] as string;
+
+           
+
             AlumnoRepository repo = new AlumnoRepository();
-            var a = repo.GetAlumno(datos);
+            var a = repo.GetAlumnoById(Id);
             return View(a);
+        }
+   
+        public IActionResult Editar(string Id)
+        {
+           
+            AlumnoRepository repo = new AlumnoRepository();
+           var alumno= repo.GetAlumnoViewModelById(Id);
+            if (alumno!=null)
+            {
+                return View(alumno);
+            }
+
+            return RedirectToAction("Index", "Alumno");
         }
     }
 }

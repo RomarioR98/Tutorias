@@ -58,7 +58,7 @@ namespace AspNetCore
             WriteLiteral("\r\n<header class=\"cabecera\">\r\n    <div class=\"container\">\r\n        <h1>Acceso Denegado</h1>\r\n    </div>\r\n</header>\r\n\r\n<div class=\"formIsAlum bg-light align-lg-center | mt-2 mx-auto mb-3\">\r\n    <div class=\"container my-2 bg-light\">\r\n        ");
             EndContext();
             BeginContext(315, 396, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "856f0c70d5fc44fa87acc4064043d484", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "77d4d21375d24fc990cddbdb460ddaa0", async() => {
                 BeginContext(374, 62, true);
                 WriteLiteral("\r\n            <p>\r\n                Acceso denegado al usuario ");
                 EndContext();

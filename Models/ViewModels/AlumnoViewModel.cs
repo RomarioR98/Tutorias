@@ -20,5 +20,6 @@ namespace Tutorias.Models
         public string Rol { get; set; }
         public bool Activo { get; set; }
 
+      }
     }
-}
+

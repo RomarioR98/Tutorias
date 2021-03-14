@@ -153,18 +153,12 @@ label {
     margin: auto;
 }
 
-/* .formReadDoc > .container
-{
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
-    align-items: center;
-    
-} */
+
 
 .formReadDoc {
     width: 600px;
-    height: 685px;
+    height: auto;
+    margin-bottom: 10px;
 }
 
 
@@ -203,6 +197,4 @@ label {
         width: 500px;
     }
 
-#txtContraseña{
 
-    }

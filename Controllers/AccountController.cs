@@ -51,7 +51,7 @@ namespace Tutorias.Controllers
 					ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 					await HttpContext.SignInAsync(principal);
 
-				    TempData["data"] = user;
+				    TempData["dataA"] = user;
 
 					return RedirectToAction("Index", "Alumno/Home", new { Id=user});
 				}
@@ -98,8 +98,8 @@ namespace Tutorias.Controllers
 					ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 					await HttpContext.SignInAsync(principal);
 
-					TempData["data"] = user;
-					return RedirectToAction("Index", "Maestro/Home");
+					TempData["dataM"] = user;
+					return RedirectToAction("Index", "Maestro/Home", new { Id = user });
 				}
 			}
 			catch (Exception ex)

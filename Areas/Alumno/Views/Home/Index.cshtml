@@ -1,4 +1,4 @@
-﻿@{TempData.Keep("data"); }
+﻿
 @model Tutorias.Models.Alumno
 @inject Tutorias.Services.MenuService ms
 @{
@@ -32,8 +32,8 @@
     </div>
 
     <div class="container my-2 bg-light">
-        <div name="contenedorForm">
-            <label type="text" name="Rol" id="txtIdRoll" class="form-control" aria-describedby="basic-addon1" value="Alumno" hidden disabled>@Model.Rol</label>
+        <div id="contenedorForm">
+            <label type="text" name="Rol" id="txtIdRoll" class="form-control" aria-describedby="basic-addon1" value="Alumno" hidden>@Model.Rol</label>
 
             <div class="input-group mb-3 ">
                 <div class="input-group-prepend">
@@ -64,7 +64,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Semestre</span>
                 </div>
-                @*<label type="text"  name="IdSemestre" id="txtIdSemestre" class="form-control" aria-describedby="basic-addon1" disabled >@Model.IdSemestreNavigation.NoSem</label>*@
+                <label type="text"  name="IdSemestre" id="txtIdSemestre" class="form-control" aria-describedby="basic-addon1" disabled >@Model.IdSemestreNavigation.NoSem</label>
 
 
             </div>
@@ -73,7 +73,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Carrera</span>
                 </div>
-                @*<label type="text" name="IdCarrera" id="txtIdCarrera" class="form-control" aria-describedby="basic-addon1" disabled>@Model.IdCarreraNavigation.Carrera1</label>*@
+                <label type="text" name="IdCarrera" id="txtIdCarrera" class="form-control" aria-describedby="basic-addon1" disabled>@Model.IdCarreraNavigation.Carrera1</label>
 
             </div>
             <div class="input-group mb-3 w-100">
@@ -83,16 +83,7 @@
                 <label type="email" name="Email" id="txtEmail" class="form-control" aria-describedby="basic-addon1" disabled>@Model.Email</label>
             </div>
 
-            @*<div class="input-group mb-3 w-100">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1" for="Contraseña">Contraseña</span>
-                </div>
-                <label typename="txtContraseña" id="txtContraseña" class="form-control password" aria-describedby="basic-addon1" disabled>@Model.Contraseña</label>
-            </div>
-        </div>*@
-            
+         </div>
 
-         
-    </div>
-
-</div>
+        </div>
+  </div>

@@ -37,7 +37,9 @@ namespace Tutorias.Repositories
 
         public Alumno GetAlumnoById(string Id)
         {
-            return Context.Alumno.FirstOrDefault(x => x.NumeroControl == Id);
+            return Context.Alumno
+                .Include(x=>x.IdSemestreNavigation)
+                .Include(y=>y.IdCarreraNavigation).FirstOrDefault(x => x.NumeroControl == Id);
         }
         public AlumnoViewModel GetAlumnoViewModelById (string Id)
         {

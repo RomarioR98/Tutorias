@@ -1,8 +1,8 @@
-﻿
+﻿@{TempData.Keep("dataA"); }
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Alumno | Inicio</title>
+    <title>Alumno</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,7 +26,7 @@
         <span class="navbar-text dropdown">
 
             <a class="nav-link dropdown-toggle  text-white " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="far fa-user"></i>   Estudiante: @TempData["data"]
+                <i class="far fa-user"></i>   Estudiante: @TempData["dataA"]
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="#">Mis materias</a>
@@ -58,10 +58,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-   
 
-        <script src="https://code.jquery.com/jquery-1.6.2.min.js"></script>
-        @*<script>
+
+    <script src="https://code.jquery.com/jquery-1.6.2.min.js"></script>
+    @*<script>
 
         $(document).ready(function() {
 

@@ -4,14 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Tutorias.Repositories;
 using Tutorias.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Tutorias.Repositories
 {
     public class MaestroRepository : Repository<Maestro>
     {
 
-
-        public MaestroViewModel GetMaestro(string Id)
+        public Maestro GetMaestroById(string Id)
+        {
+            return Context.Maestro.FirstOrDefault(x => x.NumeroControl == Id);
+        }
+        public MaestroViewModel GetMaestroViewModelById(string Id)
         {
             return Context.Maestro.Where(x => x.NumeroControl == Id).Select(x => new MaestroViewModel
             {
@@ -26,20 +30,20 @@ namespace Tutorias.Repositories
 
             }).FirstOrDefault();
         }
-        public MaestroViewModel GetMaestroById(string numctrl)
-        {
-            return Context.Maestro.Where(x => x.NumeroControl == numctrl)
-                .Select(x => new MaestroViewModel
-                {
-                    NumeroControl = x.NumeroControl,
-                    Nombre = x.Nombre,
-                    ApPaterno = x.ApPaterno,
-                    ApMaterno = x.ApMaterno,
-                    Email = x.Email,
-                    Contraseña = x.Contraseña,
-                }).FirstOrDefault();
+        //public MaestroViewModel GetMaestroById(string numctrl)
+        //{
+        //    return Context.Maestro.Where(x => x.NumeroControl == numctrl)
+        //        .Select(x => new MaestroViewModel
+        //        {
+        //            NumeroControl = x.NumeroControl,
+        //            Nombre = x.Nombre,
+        //            ApPaterno = x.ApPaterno,
+        //            ApMaterno = x.ApMaterno,
+        //            Email = x.Email,
+        //            Contraseña = x.Contraseña,
+        //        }).FirstOrDefault();
 
-        }
+        //}
         public IEnumerable<Maestrosmateria> GetMaestrosMateriaById(string numctrl)
         {
             return Context.Maestrosmateria.Where(x => x.IdMaestro == numctrl).Select(x => new Maestrosmateria

@@ -19,14 +19,27 @@ namespace Tutorias.Areas.Maestro.Controllers
     [Authorize(Roles = "Maestro")]
     public class HomeController : Controller
     {
-        public IActionResult Index(string id)
+        public IActionResult Index(string Id)
         {
-            //MateriasRepository repos = new MateriasRepository();
-            //return View(repos.GetMateriasByMaestro(id));
-            var datos = TempData["data"] as string;
+            ////MateriasRepository repos = new MateriasRepository();
+            ////return View(repos.GetMateriasByMaestro(id));
+            //var datos = TempData["data"] as string;
             MaestroRepository repo = new MaestroRepository();
-            var a = repo.GetMaestro(datos);
+            var a = repo.GetMaestroById(Id);
             return View(a);
+        }
+
+        public IActionResult Editar(string Id)
+        {
+
+            MaestroRepository repo = new MaestroRepository();
+            var maestro = repo.GetMaestroViewModelById(Id);
+            if (maestro != null)
+            {
+                return View(maestro);
+            }
+
+            return RedirectToAction("Index", "Maestro");
         }
     }
 }

@@ -1,0 +1,72 @@
+﻿@model Tutorias.Models.MaestroViewModel
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!--#######################  Header    #######################-->
+<header class="cabecera">
+    <div class="container">
+        <h1>Cuenta</h1>
+    </div>
+</header>
+
+<!--#######################  Registro Maestros   #######################-->
+<div class="formAgDoc bg-light align-lg-center mt-2 mx-auto mb-3">
+    <div class="containerDatosPersonales">
+        <h3 id="eDatosPersonales">Datos personales</h3>
+    </div>
+
+    <div class="container my-2 bg-light">
+        <form class="bg-light" method="post" action="~/Maestro/Index" enctype="multipart/form-data">
+
+            <input type="text" asp-for="Rol" name="Rol" class="form-control" aria-describedby="basic-addon1" value="Maestro" hidden>
+            <div class="input-group mb-3 w-100">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Numero de Control</span>
+                </div>
+                <input type="text" asp-for="NumeroControl" name="NumeroControl" id="txtNumControl" class="form-control" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3 w-100">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Nombre</span>
+                </div>
+                <input type="text" asp-for="Nombre" name="Nombre" id="txtNombre" class="form-control" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3 w-100">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Apellido Paterno</span>
+                </div>
+                <input type="text" asp-for="ApPaterno" name="ApPaterno" id="txtApPaterno" class="form-control" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3 w-100">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Apellido Materno</span>
+                </div>
+                <input type="text" asp-for="ApMaterno" name="ApMaterno" id="txtApMaterno" class="form-control" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3 w-100">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Email</span>
+                </div>
+                <input type="email" asp-for="Email" name="Email" id="txtEmail" class="form-control" aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group mb-3 w-100">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Contraseña</span>
+                </div>
+                <input type="password" name="Contraseña" asp-for="Contraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1">
+            </div>
+
+            <input class="btn btn-secondary btn-md float-right | mb-3" type="submit" value="Guardar" id="btnGuardar" />
+            <br />
+            <p id="error">
+                @Html.ValidationSummary()
+            </p>
+        </form>
+    </div>
+</div>
+
+
+

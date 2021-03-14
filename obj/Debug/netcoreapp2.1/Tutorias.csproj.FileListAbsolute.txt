@@ -32,7 +32,6 @@ C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutoria
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.dll
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.pdb
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.csproj.CopyComplete
-C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.csprojAssemblyReference.cache
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Razor\Areas\Alumno\Views\Home\Materias.cshtml.g.cs
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Razor\Areas\Alumno\Views\Home\AgregarMateriaAlum.cshtml.g.cs
 C:\Users\Romar\OneDrive\Escritorio\Tutorias\Tutorias\bin\Debug\netcoreapp2.1\Tutorias.deps.json
@@ -76,3 +75,5 @@ C:\Users\Romar\OneDrive\Escritorio\Tutorias\Tutorias\obj\Debug\netcoreapp2.1\Tut
 C:\Users\Romar\OneDrive\Escritorio\Tutorias\Tutorias\obj\Debug\netcoreapp2.1\Razor\Views\Account\Denied.cshtml.g.cs
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Razor\Views\Account\Denied.cshtml.g.cs
 C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Razor\Areas\Alumno\Views\Home\Editar.cshtml.g.cs
+C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Tutorias.csprojAssemblyReference.cache
+C:\Users\patty\Desktop\ProyectoTutorias\Tutorias\obj\Debug\netcoreapp2.1\Razor\Areas\Maestro\Views\Home\Editar.cshtml.g.cs

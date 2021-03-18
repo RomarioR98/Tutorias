@@ -19,9 +19,9 @@
     </div>
     <div class="container my-2">
         <form class="bg-light" method="post" action="~/RegistroAlumnos" enctype="multipart/form-data">
-           
+
             <input type="text" asp-for="Rol" name="Rol" class="form-control" aria-describedby="basic-addon1" value="Alumno" hidden>
-            
+            <input type="text" asp-for="Activo" name="Activo" class="form-control" aria-describedby="basic-addon1" hidden>
             <div class="input-group mb-3 ">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1" for="NumControl">Numero de Control</span>
@@ -86,7 +86,7 @@
 
 
             <input class="btn btn-secondary btn-md float-right | mb-3" type="submit" value="Registrar" id="btnRegistrar" />
-             <br />
+            <br />
             <br />
 
 

@@ -1,4 +1,4 @@
-﻿@model Tutorias.Models.Alumnosmateria
+﻿@model Tutorias.Models.AlumnosMateriaViewModel
 @inject Tutorias.Services.MenuService ms
 @{
     ViewData["Title"] = "AgregarMateria";
@@ -8,7 +8,7 @@
 <!--#######################  Header    #######################-->
 <header class="cabecera">
     <div class="container">
-        <h1> Agregar tu materia</h1>
+        <h1> Agrega tu materia</h1>
     </div>
 </header>
 
@@ -16,18 +16,18 @@
 <div class="formAgMatAlum bg-light align-lg-center mt-2 mx-auto">
 
     <div class="container">
-        <form>
-            <input type="text" asp-for="IdAlumno" name="IdAlumno" id="txtIdAlumno" class="form-control" aria-describedby="basic-addon1" hidden>
+        <form class="bg-light" method="post" action="~/Alumno/Materias/Agregar" enctype="multipart/form-data">
+            <input type="text" value="@TempData["dataA"]" asp-for="IdAlumno" name="IdAlumno" id="txtIdAlumno" class="form-control" aria-describedby="basic-addon1" hidden>
             <div class="input-group mb-3 w-100">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Materia</span>
                 </div>
                 <select class="form-control" asp-for="IdMateria" name="IdMateria" type="text" aria-label="Default select example">
-                   @*@foreach (var item in ms.GetMaterias())
+                   @foreach (var item in ms.GetMaterias())
                    {
-                       <option value="@item.Clave">Ing. @item.Materia1</option>
+                       <option value="@item.Clave">@item.Materia1</option>
 
-                   }*@
+                   }
                    </select>
             </div>
 

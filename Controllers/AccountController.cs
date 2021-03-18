@@ -53,7 +53,7 @@ namespace Tutorias.Controllers
 
 				    TempData["dataA"] = user;
 
-					return RedirectToAction("Index", "Alumno/Home", new { Id=user});
+					return RedirectToAction("Index", "Alumno", new { Id=user});
 				}
 			}
 			catch (Exception ex)

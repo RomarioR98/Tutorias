@@ -4,6 +4,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "_LayoutAlumno";
+    var alumno =  @TempData["dataA"];
 
 }
 
@@ -21,10 +22,10 @@
         <h3 id="eDatosPersonales ">Datos personales</h3>
         <div class="btn-group">
 
-            <a class="btn btn-light" href="~/Alumno/Home/Editar/@Model.NumeroControl">
+            <a class="btn btn-light" href="~/Alumno/Editar/@Model.NumeroControl">
                 <i class="fas fa-pen"></i>
             </a>
-            <button type="button" href="#" class="btn btn-light">
+            <button type="button" class="btn btn-light" onclick="verModal({ id:'@Model.NumeroControl'})">
                 <i class="far fa-trash-alt"></i>
             </button>
 
@@ -33,7 +34,8 @@
 
     <div class="container my-2 bg-light">
         <div id="contenedorForm">
-            <label type="text" name="Rol" id="txtIdRoll" class="form-control" aria-describedby="basic-addon1" value="Alumno" hidden>@Model.Rol</label>
+            <input type="text" name="Rol" id="txtIdRoll" class="form-control" aria-describedby="basic-addon1" value="Alumno" hidden />
+            <input type="text" asp-for="Activo" name="Activo" class="form-control" aria-describedby="basic-addon1" hidden>
 
             <div class="input-group mb-3 ">
                 <div class="input-group-prepend">
@@ -64,7 +66,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Semestre</span>
                 </div>
-                <label type="text"  name="IdSemestre" id="txtIdSemestre" class="form-control" aria-describedby="basic-addon1" disabled >@Model.IdSemestreNavigation.NoSem</label>
+                <label type="text" name="IdSemestre" id="txtIdSemestre" class="form-control" aria-describedby="basic-addon1" disabled>@Model.IdSemestreNavigation.NoSem</label>
 
 
             </div>
@@ -82,8 +84,76 @@
                 </div>
                 <label type="email" name="Email" id="txtEmail" class="form-control" aria-describedby="basic-addon1" disabled>@Model.Email</label>
             </div>
+            <div class="input-group mb-3 w-100">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1" for="Contraseña">Contraseña</span>
+                </div>
+                <label name="Contraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1" disabled>@Model.Contraseña</label>
+            </div>
 
-         </div>
 
         </div>
-  </div>
+
+    </div>
+</div>
+<!-- Modal -->
+
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="departamento"></p>
+        <button id="btnAceptar" type="submit">Aceptar</button>
+    </div>
+</div>
+
+@* Mostrar error *@
+@if (false)
+{
+    <div id="myModalError" class="modal-error">
+        <div class="modal-content">
+            <span class="closeError">&times;</span>
+            <p id="departamento">///Insertar mensaje de error aqui porfis :3</p>
+            <button id="btnAceptar" class="closeButton">Aceptar</button>
+        </div>
+    </div>
+}
+
+
+
+<script>
+    let modal = document.getElementById('myModal')
+    let modalError = document.getElementById('myModalError')
+    let alumnoModal = document.getElementById('departamento')
+    let close = document.getElementsByClassName('close')[0]
+    let closeError = document.getElementsByClassName('closeError')[0]
+    let closeButton = document.getElementsByClassName('closeButton')[0]
+    let btnAceptar = document.getElementById('btnAceptar')
+
+
+    function verModal(departamento) {
+        departamentoModal.innerText = `¿Esta seguro de dar de baja su cuenta?`
+        modal.style.display = "block"
+        btnAceptar.onclick = function () {
+            window.location.href = `/Alumno/Eliminar/${@Model.NumeroControl}`
+        }
+    }
+
+    close.onclick = function () {
+        modal.style.display = "none"
+    }
+
+    closeError.onclick = function () {
+        modalError.style.display = "none"
+    }
+
+    closeButton.onclick = function () {
+        modalError.style.display = "none"
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none"
+        }
+    }
+</script>

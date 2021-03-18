@@ -2,7 +2,7 @@
 @model Tutorias.Models.AlumnoViewModel
 @inject Tutorias.Services.MenuService ms
 @{
-    ViewData["Title"] = "AgregarAlumno";
+    //ViewData["Title"] = "Editar";
     Layout = "~/Views/Shared/_LayoutAlumno.cshtml";
 }
 <header class="cabecera">
@@ -28,14 +28,15 @@
     </div>
 
     <div class="container my-2 bg-light">
-        <form class="bg-light" method="post" action="~/Alumno/Index" enctype="multipart/form-data">
+        <form class="bg-light" method="post" action="~/Alumno/Editar/@Model.NumeroControl" enctype="multipart/form-data">
             <input type="text" asp-for="Rol" name="Rol" id="txtIdRoll" class="form-control" aria-describedby="basic-addon1" value="Alumno" hidden>
+            <input type="text" asp-for="Activo" name="Activo" class="form-control" aria-describedby="basic-addon1" hidden>
 
             <div class="input-group mb-3 ">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1" for="NumeroControl">Numero de Control</span>
                 </div>
-                <input type="text" asp-for="NumeroControl" name="txtNumControl" id="txtNumControl" class="form-control" aria-describedby="basic-addon1">
+                <input type="text" asp-for="NumeroControl" name="txtNumControl" id="txtNumControl" class="form-control" aria-describedby="basic-addon1" disabled>
 
             </div>
             <div class="input-group mb-3 w-100">
@@ -95,7 +96,15 @@
                 <input type="password" asp-for="Contraseña" name="txtContraseña" id="txtContraseña" class="form-control" aria-describedby="basic-addon1">
             </div>
 
-            <button class="btn btn-secondary btn-md float-right | mb-3" id="btnGuardar" name="btnGuardar" type="submit">Guardar</button>
+            <input class="btn btn-secondary btn-md float-right | mb-3" id="btnGuardar" name="btnGuardar" type="submit" value="Guardar">
+            <br />
+            <br />
+
+
+            <p id="error">
+                @Html.ValidationSummary()
+            </p>
+
         </form>
     </div>
 

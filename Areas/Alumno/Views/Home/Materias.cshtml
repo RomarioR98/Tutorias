@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Tutorias.Models.AlumnosMateriaViewModel>
+﻿@model IEnumerable<Tutorias.Models.Alumnosmateria>
 @{
     ViewData["Title"] = "Materias";
     Layout = "~/Views/Shared/_LayoutAlumno.cshtml";
@@ -14,14 +14,14 @@
 <!--#######################   Contenedor materias   #######################-->
 <div class="contenedorMaterias">
     <div class="container">
-        @foreach (var Alumnosmateria in Model)
+        @foreach (var AlumMat in Model)
         {
             <div class="card text-dark bg-light mb-3" style="max-width: 15rem;  max-height:12rem ;">
                 <a href="../Publicaciones/index.html" class="badge badge-light">
-                    <div class="card-header" style="font-size: 16px; font-weight:500;">@Alumnosmateria.IdMateriaNavigation.Materia1</div>
+                    <div class="card-header" style="font-size: 16px; font-weight:500;">@AlumMat.IdMateriaNavigation.Materia1</div>
                 </a>
                 <div class="card-body">
-                    <h5 class="card-title">@Alumnosmateria.IdMateria</h5>
+                    <h5 class="card-title">@AlumMat.IdMateria</h5>
                     <div class="btn-group">
                         <a href="#" class="btn btn-light">
                             <i class="far fa-trash-alt"></i>
@@ -36,7 +36,7 @@
             <div class="card-header" style="font-size: 16px; font-weight:500;">Agregar materias</div>
             <div class="card-body">
 
-                <a href="~/AgregarMateriaAlum" class="btn btn-light">
+                <a href="~/Alumno/Materias/Agregar" class="btn btn-light">
                     <i class="fas fa-plus"></i>
                 </a>
 
@@ -46,5 +46,5 @@
     </div>
 </div>
 
-</div>
+@*</div>*@
 

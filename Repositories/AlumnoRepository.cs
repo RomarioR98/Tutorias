@@ -24,38 +24,32 @@ namespace Tutorias.Repositories
         public IEnumerable<Alumnosmateria> GetAlumnosMateriaById(string Id)
         {
             tutoriasContext context = new tutoriasContext();
-            return context.Alumnosmateria.Where(x => x.IdAlumno == Id).Select(
-                x => new Alumnosmateria
-                {
-                    Id = x.Id,
-                    IdMateria = x.IdMateria
-
-
-
-                });
+            return context.Alumnosmateria
+                .Include(x => x.IdMateriaNavigation)
+                .Where(x => x.IdAlumno == Id);
         }
 
         public Alumno GetAlumnoById(string Id)
         {
             return Context.Alumno
-                .Include(x=>x.IdSemestreNavigation)
-                .Include(y=>y.IdCarreraNavigation).FirstOrDefault(x => x.NumeroControl == Id);
+                .Include(x => x.IdSemestreNavigation)
+                .Include(y => y.IdCarreraNavigation).FirstOrDefault(x => x.NumeroControl.ToUpper() == Id.ToUpper());
         }
-        public AlumnoViewModel GetAlumnoViewModelById (string Id)
+        public AlumnoViewModel GetAlumnoViewModelById(string Id)
         {
-            return Context.Alumno.Where(x => x.NumeroControl == Id).Select(x => new AlumnoViewModel
+            return Context.Alumno.Where(x => x.NumeroControl.ToUpper() == Id.ToUpper()).Select(x => new AlumnoViewModel
             {
                 NumeroControl = x.NumeroControl,
-                Nombre=x.Nombre,
-                ApMaterno=x.ApMaterno,
-                ApPaterno=x.ApPaterno,
-                Email=x.Email,
+                Nombre = x.Nombre,
+                ApMaterno = x.ApMaterno,
+                ApPaterno = x.ApPaterno,
+                Email = x.Email,
                 Contraseña = x.Contraseña,
                 IdSemestre = x.IdSemestre,
                 IdCarrera = x.IdCarrera,
                 Rol = x.Rol,
-                Activo=x.Activo
-               
+                Activo = x.Activo
+
             }).FirstOrDefault();
         }
 
@@ -117,32 +111,50 @@ namespace Tutorias.Repositories
         public void UpdateAlumno(AlumnoViewModel alumno)
         {
 
-            if (GetById(alumno.NumeroControl).NumeroControl.ToUpper() == alumno.NumeroControl.ToUpper())
-                return;
+            //if (GetById(alumno.NumeroControl).NumeroControl.ToUpper() == alumno.NumeroControl.ToUpper())
+            //    return;
 
-            string error = Validar(alumno);
+            //string error = Validar(alumno);
 
-            if (error != "")
-                throw new ApplicationException(error);
+            //if (error != "")
+            //    throw new ArgumentException(error);
 
 
-            if (GetAll().Any(x => x.Email == alumno.Email))
+            //if (GetAll().Any(x => x.Email == alumno.Email))
 
-                throw new ArgumentException("El email ya ha sido registrado");
+            //    throw new ArgumentException("El email ya ha sido registrado");
 
             var alumnoBD = GetById(alumno.NumeroControl);
+            if (alumno != null)
+            {
+                alumnoBD.NumeroControl = alumno.NumeroControl;
+                alumnoBD.Nombre = alumno.Nombre;
+                alumnoBD.ApPaterno = alumno.ApPaterno;
+                alumnoBD.ApMaterno = alumno.ApMaterno;
+                alumnoBD.Email = alumno.Email;
+                alumnoBD.Contraseña = alumno.Contraseña; /*Encrypt.GetMD5(alumno.Contraseña);*/
+                alumnoBD.IdSemestre = alumno.IdSemestre;
+                alumnoBD.IdCarrera = alumno.IdCarrera;
 
-            alumnoBD.Nombre = alumno.Nombre;
-            alumnoBD.ApPaterno = alumno.ApPaterno;
-            alumnoBD.ApMaterno = alumno.ApMaterno;
-            alumnoBD.Email = alumno.Email;
-            alumnoBD.Contraseña = alumno.Contraseña; /*Encrypt.GetMD5(alumno.Contraseña);*/
-            alumnoBD.IdSemestre = alumno.IdSemestre;
-            alumnoBD.IdCarrera = alumno.IdCarrera;
-
-            Update(alumnoBD);
+                Update(alumnoBD);
+            }
 
 
+
+
+        }
+
+
+
+        public void DeleteAlumno(string Id)
+        {
+            var alumEliminar = GetById(Id);
+
+            if (alumEliminar!=null)
+            {
+                alumEliminar.Activo = false;
+                Update(alumEliminar);
+            }
         }
 
         //public void BajaLogicaAlumno(string numctrl)
